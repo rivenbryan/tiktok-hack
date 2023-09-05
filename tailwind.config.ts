@@ -13,7 +13,8 @@ const config: Config = {
         'zxl': '0.9rem'
       },
       spacing: {
-        '100': '35rem'
+        '90': '38rem',
+        '100': '40rem'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
