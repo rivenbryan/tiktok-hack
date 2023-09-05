@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import TiktokLogo from "../../img/tiktokLogo.png";
+import TiktokLogo from "../../img/TiktokLogo.png";
 import smallLogo from "../../img/icons.png";
 import homeLogo from "../../img/home_icon.png";
 type Props = {};
