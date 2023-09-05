@@ -4,7 +4,7 @@ import VariationsModal from "./VariationsModal";
 
 type Props = {
   isChecked: boolean;
-  handleCheckBoxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleCheckBoxChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   toggleName: string;
 };
 

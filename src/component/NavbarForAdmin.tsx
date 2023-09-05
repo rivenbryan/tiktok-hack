@@ -8,7 +8,7 @@ type Props = {}
 
 export default function NavbarForAdmin({ }: Props) {
   return (
-    <div className='bg-black h-14 flex items-center gap-2'>
+    <div className='sticky top-0 w-full z-50 bg-black h-14 flex items-center gap-2'>
       <Image
         className='pl-2'
         src={TiktokLogo}

@@ -10,6 +10,7 @@ import mediaImage from "../../../img/media_image.png";
 import Image from "next/image";
 import SalesInformationComponent from "./components/SalesInformationComponent";
 import AdminButton from "./components/AdminButton";
+import ShippingComponent from "./components/ShippingComponent";
 export default function page({}: Props) {
   return (
     <>
@@ -36,7 +37,7 @@ export default function page({}: Props) {
             </div>
           </div>
 
-          <div className="flex gap-5 mt-5">
+          <div className="flex gap-5 mt-5 pb-5">
             <Leftbar />
             <div className="flex flex-col gap-5">
               <Card name="Basic Information">
@@ -93,7 +94,9 @@ export default function page({}: Props) {
               <Card name="Sales Information">
                 <SalesInformationComponent />
               </Card>
-              <Card name="Shipping"></Card>
+              <Card name="Shipping">
+                <ShippingComponent />
+              </Card>
             </div>
 
             <div>
