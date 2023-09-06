@@ -6,11 +6,11 @@ import Leftbar from "./components/Leftbar";
 import InformationComponent from "./components/InformationComponent";
 import Card from "./components/Card";
 import Textbox from "./components/Textbox";
-import mediaImage from "../../../img/media_image.png";
 import Image from "next/image";
 import SalesInformationComponent from "./components/SalesInformationComponent";
 import AdminButton from "./components/AdminButton";
 import ShippingComponent from "./components/ShippingComponent";
+import media_image from '../../../public/media_image.png'
 export default function page({}: Props) {
   return (
     <>
@@ -73,7 +73,7 @@ export default function page({}: Props) {
                     title="Product Name"
                     description="Recommended to upload at least 3 images to fully disply your product features and usage scenarios."
                   />
-                  <Image className="pt-2" src={mediaImage} alt=""></Image>
+                  <Image className="pt-2" src={media_image} alt=""></Image>
                 </div>
               </Card>
               <Card name="Product Details">
@@ -99,9 +99,6 @@ export default function page({}: Props) {
               </Card>
             </div>
 
-            <div>
-              <h1>Preview</h1>
-            </div>
           </div>
         </div>
       </div>
