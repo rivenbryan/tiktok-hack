@@ -10,9 +10,9 @@ type Props = {};
 
 export default function TiktokMobileFooter({}: Props) {
   return (
-    <footer className="bg-white text-black flex items-center">
+    <footer className="bg-white text-black flex items-center ">
       <div className="flex flex-col flex-grow items-center pt-2 pb-1">
-        <AiOutlineHome size={25} />
+        <AiOutlineHome size={25}/>
         <a className="text-sm">Home</a>
       </div>
       <div className="flex flex-col  flex-grow items-center pt-2  pb-1">
