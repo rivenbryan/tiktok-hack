@@ -11,7 +11,7 @@ export default function Groupcard({}: Props) {
           <h1 className="text-xs">400m away</h1>
           <h1 className="text-s font-bold">Bryan's Team </h1>
           <div>
-            <span className="text-xs text-red-600">
+            <span className="text-xs text-rose-600">
               $3.51<a className="text-black">/unit</a>
             </span>
           </div>

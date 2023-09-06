@@ -27,7 +27,7 @@ export default function Searchbar({}: Props) {
         <input
           type="search"
           name="q"
-          className="p-2 text-sm text-black bg-gray-100 rounded-md pl-10 w-full outline-red-500 border border-transparent"
+          className="p-2 text-sm text-black bg-gray-100 rounded-md pl-10 w-full outline-rose-600 border border-transparent"
           placeholder="Search..."
         />
       </div>
