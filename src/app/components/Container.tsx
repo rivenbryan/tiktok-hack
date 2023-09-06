@@ -1,6 +1,7 @@
 import React from "react";
 import TiktokMobileFooter from "./TiktokMobileFooter";
 import TiktokMobileHeader from "./TiktokMobileHeader";
+import TiktokMobileHeader from "./TiktokMobileHeader";
 
 type Props = {
   children: React.ReactNode;
