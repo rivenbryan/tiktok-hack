@@ -9,7 +9,7 @@ export default function NavbarForAdmin({}: Props) {
     <div className="sticky top-0 w-full z-50 bg-black h-14 flex items-center gap-2">
       <Image
         className="pl-2"
-        src='/TiktokLogo.png'
+        src='/TiktokLogo.PNG'
         width={100}
         height={50}
         alt="Picture of the author"
