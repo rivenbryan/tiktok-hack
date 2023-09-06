@@ -1,6 +1,6 @@
 import React from "react";
-import TiktokMobileFooter from "./TiktokMobileFooter";
 import TiktokMobileHeader from "./TiktokMobileHeader";
+import TiktokMobileFooter from "./TiktokMobileFooter";
 
 type Props = {
   children: React.ReactNode;
@@ -8,9 +8,9 @@ type Props = {
 
 export default function Container({ children }: Props) {
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col h-screen bg-white ">
       <TiktokMobileHeader />
-      <div className="flex-grow">{children}</div>
+      <div className="flex-grow overflow-scroll">{children}</div>
       <TiktokMobileFooter />
     </div>
   );
