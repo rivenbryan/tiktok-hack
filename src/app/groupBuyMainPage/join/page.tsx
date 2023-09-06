@@ -17,7 +17,7 @@ export default function page({}: Props) {
         </div>
       </div>
       <Searchbar />
-      <div className="flex flex-col gap-2 items-center justify-center mt-2">
+      <div className="flex flex-col gap-3 items-center justify-center mt-2">
         <Groupcard />
         <Groupcard />
         <Groupcard />
