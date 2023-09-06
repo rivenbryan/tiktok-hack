@@ -9,6 +9,7 @@ type Props = {};
 export default function page({}: Props) {
   return (
     <Container>
+     
       <div className="flex flex-col">
         <MapComponent />
         <GroupBuyBottomComponent />
