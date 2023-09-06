@@ -52,16 +52,16 @@ function Page(props: Props) {
                   <p className="text-gray-500 font-bold text-lg line-through">
                     $10.00
                   </p>
-                  <div className="bg-orange-500 w-12 text-xs text-center font-bold flex justify-center items-center rounded-full">
+                  <div className="bg-orange-500 p-0.5 text-xs text-center font-bold flex justify-center items-center rounded-full">
                     Save $1.00
                   </div>
                 </div>
               </div>
             </div>
             <div className="flex flex-col justify-between items-center h-full">
-              <p className="text-gray-500 text-right w-20">x</p>
-              <div className="bg-rose-500 w-20 h-7 rounded-md flex justify-center items-center">
-                Join GB
+              <p className="text-gray-500 text-right w-16">x</p>
+              <div className="bg-rose-500 w-16 h-7 rounded-md flex justify-center items-center">
+                Join
               </div>
             </div>
           </div>
