@@ -19,7 +19,7 @@ function Page(props: Props) {
         muted
         loop
       ></video>
-      <div className="w-full h-full flex flex-col justify-between items-center pt-5 pb-1 px-2 bg-gradient-to-b from-transparent to-black/30">
+      <div className="w-full h-full flex flex-col justify-between items-center pt-5 pb-1 px-2 bg-gradient-to-b from-transparent to-black/30 text-white">
         <Header />
         <div className="flex flex-col w-full gap-2">
           <div className="bg-orange-500 w-20 font-bold flex justify-center items-center rounded-full">
