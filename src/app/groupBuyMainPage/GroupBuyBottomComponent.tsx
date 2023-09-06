@@ -23,7 +23,7 @@ export default function GroupBuyBottomComponent({}: Props) {
           <div className="flex flex-col">
             <a className="font-bold">Create New Group</a>
             <a className="text-xs font-medium">
-              Can't find a group? Create one!
+              Cant find a group? Create one!
             </a>
           </div>
           <div className="ml-auto">
