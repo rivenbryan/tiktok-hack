@@ -9,7 +9,7 @@ export default function Groupcard({}: Props) {
         <CgProfile size={30} />
         <div className="flex flex-col">
           <h1 className="text-xs">400m away</h1>
-          <h1 className="text-s font-bold">Bryan's Team </h1>
+          <h1 className="text-s font-bold">Bryan Team </h1>
           <div>
             <span className="text-xs text-rose-600">
               $3.51<a className="text-black">/unit</a>
