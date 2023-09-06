@@ -19,7 +19,7 @@ function Footer(props: Props) {
         <AiFillStar className="h-7 w-7 text-yellow-400" />
         Subsc..
       </div>
-      <div className="px-2 text-slate-100 flex justify-center items-center bg-gray-100 h-9 w-32 bg-opacity-30 rounded-full p-1">
+      <div className="px-2 text-slate-100 flex justify-center items-center bg-black h-9 w-32 bg-opacity-30 rounded-full p-1">
         Add comme...
       </div>
       <div className="flex flex-col items-center text-xs">
