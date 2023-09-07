@@ -25,20 +25,18 @@ export default function SalesInformationComponent({}: Props) {
 
   const handleUpdateVariationName = (e: any) => {
     setVariationSize(e.target.value);
-  }
+  };
 
   const handleGroupBuyCheckBoxChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setIsGroupBuyChecked(!isGroupBuyChecked);
   };
-  console.log(arrOfOptions)
   const handleAddButton = () => {
     setArrOfOptions((prevValue: string[]) => {
       return [...prevValue, ""];
     });
   };
-
 
   return (
     <div>
@@ -52,20 +50,26 @@ export default function SalesInformationComponent({}: Props) {
       </h1>
 
       {isVariationChecked && (
-        <VariationsModal arrOfOptions={arrOfOptions} handleAddButton={handleAddButton} setArrOfOptions={setArrOfOptions} handleUpdateVariationName={handleUpdateVariationName} />
+        <VariationsModal
+          arrOfOptions={arrOfOptions}
+          handleAddButton={handleAddButton}
+          setArrOfOptions={setArrOfOptions}
+          handleUpdateVariationName={handleUpdateVariationName}
+        />
       )}
 
-      
       <Togglebutton
         toggleName="Enable Group Buy"
         isChecked={isGroupBuyChecked}
         handleCheckBoxChange={handleGroupBuyCheckBoxChange}
       />
-     
-      <Table arrOfOptions={arrOfOptions} variationSize={variationSize} isVariationChecked={isVariationChecked} />
-      {isGroupBuyChecked && (
-        <GroupbuyModal/>
-      )}
+
+      <Table
+        arrOfOptions={arrOfOptions}
+        variationSize={variationSize}
+        isVariationChecked={isVariationChecked}
+      />
+      {isGroupBuyChecked && <GroupbuyModal />}
     </div>
   );
 }
