@@ -15,7 +15,7 @@ const GlobalContext = createContext<ContextProps>({
     setGroupName: (): string => '',
 });
 
-export const GlobalContextProvider = ( {children}) => {
+export const GlobalContextProvider = ( {children}: any) => {
     const [address, setAddress] = useState<string>("");
     const [groupName, setGroupName] = useState("");
 
