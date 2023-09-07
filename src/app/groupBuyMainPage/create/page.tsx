@@ -23,7 +23,7 @@ export default function Home({}: Props) {
   };
 
   const handleClickPayment = async () => {
-
+    
     const obj: any = {
       "Northpoint Shopping Centre": 500,
       "ION Orchard": 1200,
@@ -65,7 +65,7 @@ export default function Home({}: Props) {
           <div className="flex flex-col text-xs">
             <h1 className="mb-1 ">Pick up Location</h1>
             <h1 className="font-bold">
-              {address === "" ? "No address selected" : address}
+              {address === "" ? "Northpoint Shopping Centre" : address}
             </h1>
           </div>
           <Link href="/groupBuyMainPage/create/address">

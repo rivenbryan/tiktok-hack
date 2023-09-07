@@ -164,7 +164,7 @@ function Page(props: Props) {
             <IoIosArrowForward size={15} color="gray" />
           </div>
         </div>
-        <div className="h-2 bg-gray-100 w-full mt-[8.2rem]"></div>
+        <div className="h-2 bg-gray-100 w-full "></div>
         <div className="flex w-full justify-center items-center px-4 py-2 gap-4">
           <div className="flex flex-col items-center text-xs">
             <AiOutlineShop className="h-7 w-7" />
