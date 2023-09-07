@@ -3,11 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FormEvent, useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/db";
-import { User } from "lucide-react";
+import { User, Send, Laugh } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User as UserType } from "@supabase/supabase-js";
-import { Send } from "lucide-react";
 export default function Chat() {
   const [text, setText] = useState<string>("");
   const [messages, setMessages] = useState([]);
@@ -111,16 +110,19 @@ export default function Chat() {
       <hr className="w-screen inline-block mb-3" />
       <form
         onSubmit={handleSendChat}
-        className="w-full flex items-center bottom-0 mb-5 justify-center px-4"
+        className="w-full flex items-center bottom-0 mb-5 justify-center pl-4"
       >
-        <Input
-          placeholder="Send a message..."
-          className="bg-gray-100 border-none p-4 w-[70%]"
-          onChange={(e) => setText(e.target.value)}
-          value={text}
-        />
+        <div className="relative w-[85%]">
+          <Input
+            placeholder="Send a message..."
+            className="bg-gray-100 border-none py-4 pl-4 pr-14 rounded-xl"
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+          />
+          <Laugh className="absolute right-4 top-[50%] -translate-y-[50%]" />
+        </div>
         <Button type="submit">
-          <Send />
+          <Send className="opacity-40 bg-gray-100" />
         </Button>
       </form>
     </div>
