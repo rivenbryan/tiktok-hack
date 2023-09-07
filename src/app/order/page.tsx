@@ -15,11 +15,14 @@ import { PiShareFat } from "react-icons/pi";
 import { BsBookmark, BsPeopleFill, BsShieldFillCheck } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {}
 
 function Page(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [size, setSize] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const {} = props;
 
   return (
@@ -64,27 +67,50 @@ function Page(props: Props) {
               <p className="font-semibold text-gray-500 text-sm">Size</p>
               <div className="flex justify-start items-center gap-2">
                 {["S", "M", "L", "XL", "XXL", "XXXL"].map((value) => (
-                  <div
-                    className="border-2 border-gray px-2 py-1 min-w-[50px] text-center"
+                  <button
+                    onClick={() => {
+                      setSize(value);
+                    }}
+                    className={`border-2 px-2 py-1 min-w-[50px] text-center" +
+                      ${size === value ? " border-rose-600" : " border-gray"}`}
                     key={value}
                   >
                     {value}
-                  </div>
+                  </button>
                 ))}
               </div>
               <div className="flex w-full justify-between items-center mt-4">
                 <p className="font-semibold text-gray-500 text-sm">Quantity</p>
                 <div className="flex w-32 border-2 border-gray-200 h-8 rounded-lg justify-evenly items-center">
-                  <AiOutlineMinus size={15} color="black" />
-                  <p className="border-gray-200 border-x-2 px-5">1</p>
-                  <AiOutlinePlus size={15} color="black" />
+                  <AiOutlineMinus
+                    onClick={() => {
+                      if (quantity > 1) {
+                        setQuantity(quantity - 1);
+                      }
+                    }}
+                    size={15}
+                    color="black"
+                  />
+                  <p className="border-gray-200 border-x-2 w-10 text-center">
+                    {quantity}
+                  </p>
+                  <AiOutlinePlus
+                    onClick={() => {
+                      setQuantity(quantity + 1);
+                    }}
+                    size={15}
+                    color="black"
+                  />
                 </div>
               </div>
             </div>
             <div className="w-full flex flex-col justify-center items-center gap-2">
-              <button className="bg-teal-600 w-full h-12 rounded-sm flex justify-center items-center text-white">
+              <Link
+                href="/groupBuyMainPage"
+                className="bg-teal-600 w-full h-12 rounded-sm flex justify-center items-center text-white"
+              >
                 Group buy
-              </button>
+              </Link>
               <button className="bg-rose-500 w-full h-12 rounded-sm flex justify-center items-center text-white">
                 Add to cart
               </button>
@@ -93,7 +119,9 @@ function Page(props: Props) {
         </div>
       )}
       <div className="bg-white p-2 flex gap-5 justify-between">
-        <AiOutlineArrowLeft color="black" size={30} />
+        <Link href="/listings">
+          <AiOutlineArrowLeft color="black" size={30} />
+        </Link>
         <div className="flex gap-2">
           <PiShareFat color="black" size={30} />
           <AiOutlineShoppingCart color="black" size={30} />
@@ -144,9 +172,14 @@ function Page(props: Props) {
             <RiChatSmile2Line className="h-7 w-7" />
             Chat
           </div>
-          <div className="text-rose-500 w-32 h-12 rounded-sm font-semibold flex justify-center items-center bg-white border-rose-500 border-2">
+          <button
+            onClick={() => {
+              setIsOpen(true);
+            }}
+            className="text-rose-500 w-32 h-12 rounded-sm font-semibold flex justify-center items-center bg-white border-rose-500 border-2"
+          >
             Add to cart
-          </div>
+          </button>
           <button
             onClick={() => {
               setIsOpen(true);
