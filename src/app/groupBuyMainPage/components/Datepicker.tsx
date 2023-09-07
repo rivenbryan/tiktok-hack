@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 
-const DatePicker: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+interface Props {
+  selectedDate: string | null;
+  setSelectedDate: (date: string) => void;
+}
 
+const DatePicker: FC<Props> = ({ selectedDate, setSelectedDate }) => {
+  
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(event.target.value);
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <input
         type="date"
         value={selectedDate || ''}

@@ -20,7 +20,7 @@ export default function AddressCard({
   const { setAddress } = useGlobalContext();
 
   const handleClick = () => {
-    setAddress(location + ", " + addressMore + ", " + postcode);
+    setAddress(location);
   };
 
   return (
