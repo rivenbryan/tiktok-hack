@@ -6,9 +6,9 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 type Props = {};
 
-export default function page({}: Props) {
+export default function Home({}: Props) {
   return (
-    <Container>
+    <Container navigateString={"/"}>
      
       <div className="flex flex-col">
         <MapComponent />
