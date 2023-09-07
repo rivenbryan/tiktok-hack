@@ -7,7 +7,7 @@ type Props = {};
 
 export default function page({}: Props) {
   return (
-    <Container>
+    <Container navigateString="/groupBuyMainPage">
       <div className="flex flex-col gap-5 ml-4 m-5 h-[95%]">
         <div className=" ">
           <h1 className="font-bold">Start A New Group!</h1>

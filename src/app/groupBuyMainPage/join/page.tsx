@@ -8,7 +8,7 @@ type Props = {};
 
 export default function page({}: Props) {
   return (
-    <Container>
+    <Container navigateString="/groupBuyMainPage">
       <div className="flex m-5 justify-center items-center ">
         <h1 className="font-bold">Nearby Groups</h1>
         <div className="flex ml-auto justify-center items-center gap-1">
