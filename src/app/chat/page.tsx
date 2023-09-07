@@ -32,7 +32,7 @@ const UNKNOWN_REPLY_MESSAGE = [
   "Sorry, we do not recognize your command. Can you try again?",
 ];
 const MYPICKTIME_REPLY_MESSAGES = [
-  "Your pick up time is 12pm to 1pm, on Sunday, 13 June 2021",
+  "Your pick up time is 12pm to 1pm, on Sunday, 13 June 2023",
 ];
 const ORDERSTATUS_REPLY_MESSAGES = [
   "Your order is currently being processed. It will be arrived in 2 days time.",
