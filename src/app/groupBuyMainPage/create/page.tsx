@@ -8,6 +8,7 @@ import { createContext, useContext, useState } from "react";
 import { GrCircleInformation } from "react-icons/gr";
 
 import { useGlobalContext } from "@/app/contexts/store";
+import DatePicker from "../components/Datepicker";
 type Props = {};
 export default function   page({}: Props) {
   const { address } = useGlobalContext();
@@ -55,6 +56,9 @@ export default function   page({}: Props) {
               Add a deadline for this campaign{" "}
             </h1>
             <GrCircleInformation size={15} />
+          </div>
+          <div>
+            <DatePicker/>
           </div>
 
           <div className="flex justify-between mt-auto">
