@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Select,
@@ -7,8 +8,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-const HOURS = Array.from(Array(24).keys());
 const intervals: string[] = [];
 
 for (let hour = 0; hour < 24; hour++) {
@@ -21,9 +22,14 @@ for (let hour = 0; hour < 24; hour++) {
 
 export default function Schedule() {
   const [date, setDate] = useState<Date | undefined>(undefined);
-  const [interval, setIntervak] = useState<string>("");
+  const [interval, setInterval] = useState<string>("");
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    router.push("/chat");
+  };
   return (
-    <div className="w-screen px-4">
+    <div className="w-screen min-h-[90vh] relative px-4">
       <Calendar
         mode="single"
         selected={date}
@@ -54,7 +60,7 @@ export default function Schedule() {
                   value={interval}
                   className="bg-white"
                 >
-                  {interval}
+                  <div onClick={() => setInterval(interval)}>{interval}</div>
                 </SelectItem>
               ))}
             </SelectContent>
@@ -67,6 +73,12 @@ export default function Schedule() {
           chat with the leader to request for more timing
         </span>
       </p>
+      <Button
+        className="bg-red-500 absolute mb-4 bottom-0 text-white w-[90%] rounded-xl"
+        onClick={handleSubmit}
+      >
+        Confirm Schedule
+      </Button>
     </div>
   );
 }
