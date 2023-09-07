@@ -3,6 +3,7 @@ import { BiSolidShoppingBag } from "react-icons/bi";
 import { AiFillStar, AiFillGift } from "react-icons/ai";
 import { GiRose } from "react-icons/gi";
 import { PiShareFat } from "react-icons/pi";
+import Link from "next/link";
 
 interface Props {}
 
@@ -12,7 +13,9 @@ function Footer(props: Props) {
   return (
     <div className="flex w-full justify-between items-center">
       <div className="flex flex-col items-center text-xs">
-        <BiSolidShoppingBag className="h-7 w-7 text-orange-400" />
+        <Link href="/listings">
+          <BiSolidShoppingBag className="h-7 w-7 text-orange-400" />
+        </Link>
         Shop
       </div>
       <div className="flex flex-col items-center text-xs">
