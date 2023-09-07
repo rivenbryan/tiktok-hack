@@ -4,12 +4,13 @@ import TiktokMobileFooter from "./TiktokMobileFooter";
 
 type Props = {
   children: React.ReactNode;
+  navigateString: string;
 };
 
-export default function Container({ children }: Props) {
+export default function Container({ children, navigateString}: Props) {
   return (
-    <div className="flex flex-col h-screen  bg-white ">
-      <TiktokMobileHeader />
+    <div className="flex flex-col h-screen bg-white ">
+      <TiktokMobileHeader navigateURL={navigateString}/>
       <div className="flex-grow overflow-scroll">{children}</div>
       <TiktokMobileFooter />
     </div>

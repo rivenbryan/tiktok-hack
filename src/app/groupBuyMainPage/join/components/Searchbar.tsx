@@ -1,8 +1,10 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-export default function Searchbar({}: Props) {
+export default function Searchbar({ handleChange }: Props) {
   return (
     <div className="p-2">
       <div className="relative text-gray-600 focus-within:text-gray-400">
@@ -27,6 +29,7 @@ export default function Searchbar({}: Props) {
         <input
           type="search"
           name="q"
+          onChange={handleChange}
           className="p-2 text-sm text-black bg-gray-100 rounded-md pl-10 w-full outline-rose-600 border border-transparent"
           placeholder="Search..."
         />
