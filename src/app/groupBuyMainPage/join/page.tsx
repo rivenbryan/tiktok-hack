@@ -18,7 +18,7 @@ interface Group {
 }
 type Props = {};
 
-export default function page({}: Props) {
+export default function Home({}: Props) {
   const [groups, setGroups] = useState<Group[]>([]);
   const [selectedOption, setSelectedOption] = useState("");
   const [filterText, setFilterText] = useState<string>("");
