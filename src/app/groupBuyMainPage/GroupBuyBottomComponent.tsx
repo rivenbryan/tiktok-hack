@@ -10,7 +10,7 @@ export default function GroupBuyBottomComponent({}: Props) {
           <div className="flex flex-col ">
             <a className="font-bold">Join Existing Group</a>
             <a className="text-xs font-light">
-              Discover Nearby Groups over here!
+              Discover other Groups over here!
             </a>
           </div>
           <div className="ml-auto">

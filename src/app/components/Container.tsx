@@ -8,7 +8,7 @@ type Props = {
 
 export default function Container({ children }: Props) {
   return (
-    <div className="flex flex-col h-screen bg-white ">
+    <div className="flex flex-col h-screen  bg-white ">
       <TiktokMobileHeader />
       <div className="flex-grow overflow-scroll">{children}</div>
       <TiktokMobileFooter />
