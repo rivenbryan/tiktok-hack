@@ -145,7 +145,7 @@ export default function Chat() {
     }
     setMessages((prevMessages) => {
       const newMessage = {
-        text: <>text</>,
+        text: <>{text}</>,
         username,
         id: Math.random(),
       };
