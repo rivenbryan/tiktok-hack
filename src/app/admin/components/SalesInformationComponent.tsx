@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import InformationComponent from "./InformationComponent";
 import Togglebutton from "./Togglebutton";
 import VariationsModal from "./VariationsModal";
 import Table from "./Table";
