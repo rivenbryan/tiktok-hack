@@ -12,7 +12,7 @@ import DatePicker from "../components/Datepicker";
 import { supabase } from "@/lib/db";
 type Props = {};
 export default function Home({}: Props) {
-  const { address, groupName,  setGroupName} = useGlobalContext();
+  const { address, groupName,  setGroupName, quantity} = useGlobalContext();
   const [selectedDate, setSelectedDate] = useState<string | null>("");
 
   console.log(groupName)
@@ -43,7 +43,7 @@ export default function Home({}: Props) {
           <h1 className="font-bold">Start A New Group!</h1>
         </div>
         <div className="flex   border order-gray-300 rounded-l shadow-lg ">
-          <Image src="/product.png" height={70} width={70} alt={""} />
+          <Image src="/productNew.jpg" height={100} width={90} alt={""} />
           <div className="flex items-center">
             <h1 className="font-light text-xs pl-2">Plain T-Shirt (Normal)</h1>
           </div>
@@ -88,7 +88,7 @@ export default function Home({}: Props) {
 
         <div className="flex justify-between mt-auto">
           <div className="flex flex-col ">
-            <h1 className="text-rose-600 font-bold">$38.1</h1>
+            <h1 className="text-rose-600 font-bold">${(quantity * 9.90).toFixed(2)}</h1>
             <h1 className="text-xs">Total before shipping</h1>
           </div>
           <button

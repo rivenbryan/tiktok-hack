@@ -29,14 +29,14 @@ function Page(props: Props) {
           <div className="h-24 bg-white rounded-lg p-2 flex justify-between items-center">
             <div className="flex justify-start items-center gap-1 h-full">
               <Image
-                src="/product.png"
+                src="/productNew.jpg"
                 width={100}
                 height={100}
                 alt="pic"
                 className="h-20 w-20"
               />
               <div className="flex flex-col h-full w-60 justify-between">
-                <p className="text-black font-bold">PLAIN T-SHIRT [PINK]</p>
+                <p className="text-black font-bold">PLAIN T-SHIRT [NORMAL]</p>
                 <div className="flex justify-start items-center">
                   <div className="bg-blue-400 rounded-md p-0.5 text-xs">
                     Groupbuy
