@@ -6,7 +6,7 @@ export default function ChatLayout({
 }) {
   return (
     <div className="h-screen overflow-y-hidden">
-      <TiktokMobileHeader />
+      <TiktokMobileHeader heading="Chat room" />
       {children}
     </div>
   );
