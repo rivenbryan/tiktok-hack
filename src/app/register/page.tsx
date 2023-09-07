@@ -9,17 +9,12 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await signUpWithEmail(email, password, username);
+    await signUpWithEmail(email, password);
   };
   return (
     <div className="flex w-screen h-screen items-center justify-center">
       <div className="flex-col">
         <form onSubmit={(e) => handleRegister(e)}>
-          <Input
-            placeholder="username"
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-          />
           <Input
             placeholder="email"
             type="email"
