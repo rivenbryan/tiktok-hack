@@ -16,13 +16,15 @@ import { BsBookmark, BsPeopleFill, BsShieldFillCheck } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 import Link from "next/link";
+import { useGlobalContext } from "../contexts/store";
 
 interface Props {}
 
 function Page(props: Props) {
+  const {quantity, setQuantity} = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState("");
-  const [quantity, setQuantity] = useState(1);
+ 
   const {} = props;
 
   return (
@@ -40,7 +42,7 @@ function Page(props: Props) {
               <div className="w-full flex justify-between items-start ">
                 <div className="flex gap-2">
                   <Image
-                    src="/product.png"
+                    src="/productNew.jpg"
                     width={100}
                     height={100}
                     alt="pic"
@@ -131,9 +133,9 @@ function Page(props: Props) {
       <hr className="h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
       <div className="flex flex-col justify-start items-start w-full">
         <Image
-          src="/product.png"
-          width={100}
-          height={100}
+          src="/productNew.jpg"
+          width={1000}
+          height={1000}
           alt="pic"
           className="w-full"
         />

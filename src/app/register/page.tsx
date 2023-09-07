@@ -9,7 +9,7 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await signUpWithEmail(email, password);
+    await signUpWithEmail(email, password, username);
   };
   return (
     <div className="flex w-screen h-screen items-center justify-center">
@@ -19,6 +19,11 @@ export default function Register() {
             placeholder="email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="username"
+            type="username"
+            onChange={(e) => setUsername(e.target.value)}
           />
           <Input
             placeholder="password"

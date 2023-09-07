@@ -29,7 +29,7 @@ export default function Listings() {
         <div className="w-6/12 bg-white border rounded-xl">
           <div className="relative">
             <Image
-              src="/product.png"
+              src="/productNew.jpg"
               width={100}
               height={100}
               alt="pic"
