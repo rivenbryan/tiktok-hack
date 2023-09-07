@@ -3,6 +3,7 @@ import Footer from "./footer";
 import Image from "next/image";
 import { MdLocationPin } from "react-icons/md";
 import { HiUserGroup } from "react-icons/hi";
+import Link from "next/link";
 
 interface Props {}
 
@@ -60,9 +61,12 @@ function Page(props: Props) {
             </div>
             <div className="flex flex-col justify-between items-center h-full">
               <p className="text-gray-500 text-right w-16">x</p>
-              <div className="bg-rose-500 w-16 h-7 rounded-md flex justify-center items-center">
+              <Link
+                href="/order"
+                className="bg-rose-500 w-16 h-7 rounded-md flex justify-center items-center"
+              >
                 Join
-              </div>
+              </Link>
             </div>
           </div>
           <Footer />
