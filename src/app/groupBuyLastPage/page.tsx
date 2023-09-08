@@ -32,12 +32,12 @@ export default function Page() {
               Interact with other members to arrange future groupbuys with them
             </p>
             <div className="flex justify-center w-full items-center gap-3">
-              <button
-                onClick={() => setIsOpen(false)}
-                className="w-24 h-10 bg-rose-600 text-white font-semibold rounded-xl"
+              <Link
+                href="/chat"
+                className="w-24 h-10 bg-rose-600 text-white font-semibold rounded-xl flex justify-center items-center"
               >
                 Join Now
-              </button>
+              </Link>
               <button
                 onClick={() => setIsOpen(false)}
                 className="w-24 h-10 bg-white text-rose-600 font-semibold rounded-xl border border-rose-600"
