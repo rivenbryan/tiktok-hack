@@ -7,10 +7,10 @@ type Props = {
   navigateString: string;
 };
 
-export default function Container({ children, navigateString}: Props) {
+export default function Container({ children, navigateString }: Props) {
   return (
-    <div className="flex flex-col h-screen bg-white ">
-      <TiktokMobileHeader navigateURL={navigateString}/>
+    <div className="flex flex-col h-[100svh] bg-white ">
+      <TiktokMobileHeader navigateURL={navigateString} />
       <div className="flex-grow overflow-scroll">{children}</div>
       <TiktokMobileFooter />
     </div>

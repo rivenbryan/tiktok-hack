@@ -28,7 +28,7 @@ function Page(props: Props) {
   const {} = props;
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-[100svh]">
       {isOpen && (
         <div className="h-full w-full flex flex-col fixed top-0 left-0 bg-black bg-opacity-20 justify-end">
           <div
