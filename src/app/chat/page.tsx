@@ -311,7 +311,12 @@ export default function Chat() {
           >
             <div className="relative w-[85%]">
               <CommandInput
-                placeholder="Send a message..."
+                disabled={user === null}
+                placeholder={`${
+                  user === null
+                    ? "Please login first to send a message"
+                    : "Send a message..."
+                }`}
                 className="bg-gray-100 border-none py-4 pl-4 pr-14 rounded-xl"
                 onValueChange={setText}
                 value={text}
@@ -346,7 +351,7 @@ export default function Chat() {
             )}
         </Command>
       </div>
-      {(!user || loading) && (
+      {loading && (
         <div className="absolute w-screen h-full items-center flex justify-center bg-white opacity-30">
           <Image
             src={"/Loading.svg"}
