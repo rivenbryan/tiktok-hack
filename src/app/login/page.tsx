@@ -12,21 +12,27 @@ export default function Login() {
   };
   return (
     <div className="flex w-screen h-screen items-center justify-center">
-      <div className="flex-col">
-        <form onSubmit={(e) => handleLogin(e)}>
+      <form onSubmit={(e) => handleLogin(e)} className="w-8/12">
+        <h1 className="text-xl font-bold text-center mb-10 drop-shadow-xl">
+          Log in into your account.
+        </h1>
+        <div className="flex flex-col gap-4">
           <Input
             placeholder="email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            className=""
           />
           <Input
             placeholder="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button type="submit">Login</Button>
-        </form>
-      </div>
+          <Button className="border bg-red-500 text-white" type="submit">
+            Login
+          </Button>
+        </div>
+      </form>
     </div>
   );
 }
