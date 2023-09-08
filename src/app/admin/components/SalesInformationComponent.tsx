@@ -38,7 +38,7 @@ export default function SalesInformationComponent({}: Props) {
   };
 
   return (
-    <div>
+    <div className="w-full ">
       <Togglebutton
         toggleName="Enable Variation"
         isChecked={isVariationChecked}

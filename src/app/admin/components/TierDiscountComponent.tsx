@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import Textbox from "./Textbox";
 import AdminButton from "./AdminButton";
+import GroupBuyTextbox from "./GroupBuyTextbox";
 
-type Props = {};
+type Props = {
+  groupBuyPrice: GroupBuy[];
+  setGroupBuyPrice: React.Dispatch<React.SetStateAction<GroupBuy[]>>;
+};
 
-export default function TierDiscountComponent({}: Props) {
-  const [amt, setAmt] = useState<number>(10);
-  const [discount, setDiscount] = useState<number>(5);
-  const handleUpdate = (e: any)=> {
-    setAmt(e.target.value)
+export interface GroupBuy {
+  qty: number;
+  discount: number;
+}
+export default function TierDiscountComponent({groupBuyPrice, setGroupBuyPrice}: Props) {
+  
+
+  const handleAdd = () => {
+    setGroupBuyPrice((prevValue: GroupBuy[]) => {
+      const updatedArray = [...prevValue];
+      updatedArray.push({ qty: 0, discount: 0 });
+      return updatedArray;
+    });
   }
-  const [check, setCheck] = useState<boolean>(false)
-
-  const handleDiscount = (e: any)=> {
-    setDiscount(e.target.value)
-  }
+ 
   return (
     <div className="flex flex-col gap-5">
       <div className=" shadow-md sm:rounded-lg mt-5">
@@ -30,45 +38,21 @@ export default function TierDiscountComponent({}: Props) {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b ">
-              <td className="font-bold  px-6 py-4">
-                <Textbox handleUpdate={handleUpdate} value={amt} height="1.5rem" />
-              </td>
-              <td className="px-6 py-4 w-4">
-                <Textbox handleUpdate={handleDiscount} value={discount} height="1.5rem" />
-              </td>
-            </tr>
-            <tr className="bg-white border-b ">
-              <td className="font-bold px-6 py-4">
-                <Textbox value={20} height="1.5rem" />
-              </td>
-              <td className="px-6 py-4 ">
-                <Textbox value={7} height="1.5rem" />
-              </td>
-            </tr>
-            <tr className="bg-white border-b ">
-              <td className="font-bold px-6 py-4">
-                <Textbox value={30} height="1.5rem" />
-              </td>
-              <td className="px-6 py-4">
-                <Textbox value={10} height="1.5rem" />
-              </td>
-            </tr>
-           {
-            check && ( <tr className="bg-white border-b ">
-            <td className="font-bold px-6 py-4">
-                <Textbox height="1.5rem" />
-              </td>
-              <td className="px-6 py-4">
-                <Textbox height="1.5rem" />
-              </td>
-            </tr>)
-           }
+            {groupBuyPrice.map((groupBuy, index) => (
+              <tr key={index} className="bg-white border-b ">
+                <td className="font-bold  px-6 py-4">
+                  <GroupBuyTextbox isQty={true} setGroupBuyPrice={setGroupBuyPrice} value={groupBuy.qty} key={index} indexValue={index} height="1.5rem" />
+                </td>
+                <td className="px-6 py-4 w-4">
+                  <GroupBuyTextbox isQty={false} setGroupBuyPrice={setGroupBuyPrice}  key={index}  value={groupBuy.discount} indexValue={index} height="1.5rem" />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
       <div className="flex ">
-        <AdminButton handleClick={()=> setCheck(true)} text="Add" />
+        <AdminButton handleClick={handleAdd} text="Add" />
       </div>
     </div>
   );

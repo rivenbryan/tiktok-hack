@@ -24,7 +24,7 @@ export default function Table({
             )}
 
             <th scope="col" className="px-6 py-3">
-              * Retail Price
+              * Retail Price (SGD)
             </th>
             <th scope="col" className="px-6 py-3">
               * Quantity

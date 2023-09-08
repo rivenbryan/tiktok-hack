@@ -2,10 +2,17 @@ import React from "react";
 import Textbox from "./Textbox";
 
 type Props = {
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setUnitPerItem: React.Dispatch<React.SetStateAction<number | undefined>>
+  setTotalQuantity: React.Dispatch<React.SetStateAction<number | undefined>>
 };
 
-export default function FixedDiscountComponent({ handleChange }: Props) {
+export default function TableGroupBuy({setUnitPerItem,  setTotalQuantity}: Props) {
+  const handleChangeUnitPerItem = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUnitPerItem(Number(e.target.value));
+  }
+  const handleChangeTotalQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTotalQuantity(Number(e.target.value));
+  }
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
       <table className="w-full text-sm text-left text-gray-500">
@@ -14,35 +21,23 @@ export default function FixedDiscountComponent({ handleChange }: Props) {
           <tr className="bg-white border-b ">
             <td className="px-6 py-4">
               <div className="flex gap-2 items-center">
-                Discount % Per Quantity
+                Unit Price per item (SGD)
               </div>
             </td>
 
             <td className="px-6 py-4">
-              <input
-                onChange={handleChange}
-                type="text"
-                className="border border-gray-300 text-gray-900 rounded-lg w-full block h-6 py-1 "
-                placeholder=""
-                required
-              />
+              <Textbox handleUpdate={handleChangeUnitPerItem} height="1.5rem" />
             </td>
           </tr>
           <tr className="bg-white border-b ">
             <td className="px-6 py-4">
               <div className="flex gap-2 items-center">
-                Maximum Discount Applicable:
+                Total Quantity (Pcs):
               </div>
             </td>
 
             <td className="px-6 py-4">
-              <input
-                onChange={handleChange}
-                type="text"
-                className="border border-gray-300 text-gray-900 rounded-lg w-full block h-6 w-10 py-1 "
-                placeholder=""
-                required
-              />
+              <Textbox handleUpdate={handleChangeTotalQuantity} height="1.5rem" />
             </td>
           </tr>
         </tbody>
