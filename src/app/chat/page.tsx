@@ -3,7 +3,28 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FormEvent, useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/db";
-import { User, Send, Laugh } from "lucide-react";
+import {
+  User,
+  Send,
+  Laugh,
+  MoreVertical,
+  Mail,
+  MessageSquare,
+  PlusCircle,
+  Languages,
+} from "lucide-react";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User as UserType } from "@supabase/supabase-js";
@@ -16,18 +37,19 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import axios from "axios";
 
 const WHOISLEADER_REPLY_MESSAGES = ["Sarah"];
 const SCHEDULE_REPLY_MESSAGES = [
   "The deadline for the purchase is up. The order now will be dispatched to the seller. Please click on the link below to a schedule a pickup timing",
+];
+const SCHEDULE_REPLY_COMPONENTS = [
   <SchedulePickupComponent
     scheduleURl="/schedule"
     title="Custsomizable T-Shirt"
     key={Math.random()}
   />,
 ];
-
-const SCHEDULE_REPLY_MESSAGES_COMPONENT = [];
 const UNKNOWN_REPLY_MESSAGE = [
   "Sorry, we do not recognize your command. Can you try again?",
 ];
@@ -58,6 +80,7 @@ const commands = [
 ];
 
 export default function Chat() {
+  const [loading, setLoading] = useState(false);
   const [text, setText] = useState<string>("");
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState<null | UserType>(null);
@@ -130,10 +153,40 @@ export default function Chat() {
     }
   };
 
+  const handleTranslate = async (message: any, to: string) => {
+    const content = message?.text;
+    const body = {
+      content,
+      originalLanguage: "english",
+      resultLanguage: to,
+    };
+    setLoading(true);
+    try {
+      const res = await axios.post("/api/translate", body);
+      const newMessages = messages.map((currMessage: any) => {
+        if (message.id === currMessage.id) {
+          return {
+            text: res.data.data,
+            username: currMessage.username,
+            id: currMessage.id,
+          };
+        }
+        return currMessage;
+      });
+      setMessages(newMessages as any);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSendCommand = () => {
     let replyMessages: any[] = [];
+    let replyComponents: any[] = [];
     if (text === "/schedule") {
       replyMessages = SCHEDULE_REPLY_MESSAGES;
+      replyComponents = SCHEDULE_REPLY_COMPONENTS;
     } else if (text === "/whoisleader") {
       replyMessages = WHOISLEADER_REPLY_MESSAGES;
     } else if (text === "/mypicktime") {
@@ -163,9 +216,21 @@ export default function Chat() {
         })),
       ] as any;
     });
+
+    setMessages((prevMessages) => {
+      return [
+        ...prevMessages,
+        ...replyComponents.map((component) => ({
+          text: <>{component}</>,
+          username: "TikTok Bot",
+          id: Math.random(),
+          component: true,
+        })),
+      ] as any;
+    });
   };
 
-  return user ? (
+  return (
     <div className="w-screen h-screen items-center flex flex-col pt-6 relative">
       <div className="w-full px-4 h-[80%] flex-grow-1 overflow-y-scroll">
         {messages.map((message: any, index) => (
@@ -193,6 +258,46 @@ export default function Chat() {
               <div className="text-red-500 font-bold">{message.username}</div>
               <div>{message.text}</div>
             </div>
+            {!message?.component && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <div className="flex items-center justify-center opacity-60">
+                    <MoreVertical />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-20 bg-white">
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
+                      <Languages className="mr-2 h-4 w-4" />
+                      <span>Translate</span>
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent className="bg-white">
+                        <DropdownMenuItem
+                          onClick={() => handleTranslate(message, "chinese")}
+                        >
+                          <Mail className="mr-2 h-4 w-4" />
+                          <span>Chinese</span>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => handleTranslate(message, "english")}
+                        >
+                          <MessageSquare className="mr-2 h-4 w-4" />
+                          <span>English</span>
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem
+                          onClick={() => handleTranslate(message, "malay")}
+                        >
+                          <PlusCircle className="mr-2 h-4 w-4" />
+                          <span>Malay</span>
+                        </DropdownMenuItem>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
         ))}
         <div ref={lastMessageRef}></div>
@@ -241,10 +346,16 @@ export default function Chat() {
             )}
         </Command>
       </div>
-    </div>
-  ) : (
-    <div className="flex w-screen h-screen items-center justify-center">
-      <Image src={"/Loading.svg"} alt="Loading..." width={100} height={100} />
+      {(!user || loading) && (
+        <div className="absolute w-screen h-full items-center flex justify-center bg-white opacity-30">
+          <Image
+            src={"/Loading.svg"}
+            alt="Loading..."
+            width={100}
+            height={100}
+          />
+        </div>
+      )}
     </div>
   );
 }
