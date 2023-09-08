@@ -6,10 +6,10 @@ type Props = {};
 
 export default function NavbarForAdmin({}: Props) {
   return (
-    <div className="sticky top-0 w-full z-50 bg-black h-14 flex items-center gap-2">
+    <div className="fixed top-0 w-full z-50 bg-black h-14 flex items-center gap-2">
       <Image
         className="pl-2"
-        src='/TiktokLogo.PNG'
+        src="/TiktokLogo.PNG"
         width={100}
         height={50}
         alt="Picture of the author"
@@ -24,8 +24,13 @@ export default function NavbarForAdmin({}: Props) {
       </div>
 
       <div className="flex ml-auto mr-10 items-center">
-        <Image src='/icons.png' width={110} height={25} alt="Picture of the author" />
-        <Image src='/home_icon.png' width={25} height={25} alt={""} />
+        <Image
+          src="/icons.png"
+          width={110}
+          height={25}
+          alt="Picture of the author"
+        />
+        <Image src="/home_icon.png" width={25} height={25} alt={""} />
         <a className="text-white text-xs text-opacity-75 p-2">Bryan Account</a>
       </div>
     </div>

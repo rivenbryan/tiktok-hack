@@ -21,14 +21,14 @@ import { useGlobalContext } from "../contexts/store";
 interface Props {}
 
 function Page(props: Props) {
-  const {quantity, setQuantity} = useGlobalContext();
+  const { quantity, setQuantity } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState("");
- 
+
   const {} = props;
 
   return (
-    <div className="flex flex-col h-screen ">
+    <div className="flex flex-col h-screen">
       {isOpen && (
         <div className="h-full w-full flex flex-col fixed top-0 left-0 bg-black bg-opacity-20 justify-end">
           <div
@@ -46,7 +46,7 @@ function Page(props: Props) {
                     width={100}
                     height={100}
                     alt="pic"
-                    className="rounded-md"
+                    className="rounded-md aspect-square"
                   />
                   <p className="font-bold text-2xl">$10.00</p>
                 </div>
@@ -68,13 +68,18 @@ function Page(props: Props) {
               </div>
               <p className="font-semibold text-gray-500 text-sm">Size</p>
               <div className="flex justify-start items-center gap-2">
-                {["S", "M", "L", "XL", "XXL", "XXXL"].map((value) => (
+                <button
+                  onClick={() => {
+                    setSize(size === "S" ? "" : "S");
+                  }}
+                  className={`border-2 px-2 py-1 min-w-[50px] text-center" +
+                      ${size === "S" ? " border-rose-600" : " border-gray"}`}
+                >
+                  S
+                </button>
+                {["M", "L", "XL", "XXL", "XXXL"].map((value) => (
                   <button
-                    onClick={() => {
-                      setSize(value);
-                    }}
-                    className={`border-2 px-2 py-1 min-w-[50px] text-center" +
-                      ${size === value ? " border-rose-600" : " border-gray"}`}
+                    className="border-2 border-gray-300 px-2 py-1 min-w-[50px] text-center bg-gray-300"
                     key={value}
                   >
                     {value}
@@ -137,7 +142,7 @@ function Page(props: Props) {
           width={1000}
           height={1000}
           alt="pic"
-          className="w-full"
+          className="w-full aspect-square"
         />
         <div className="flex px-4 py-2 flex-col w-full gap-1">
           <p className="font-bold text-2xl">$10.00</p>
@@ -164,7 +169,7 @@ function Page(props: Props) {
             <IoIosArrowForward size={15} color="gray" />
           </div>
         </div>
-        <div className="h-2 bg-gray-100 w-full mt-[8.2rem]"></div>
+        <div className="h-2 bg-gray-100 w-full"></div>
         <div className="flex w-full justify-center items-center px-4 py-2 gap-4">
           <div className="flex flex-col items-center text-xs">
             <AiOutlineShop className="h-7 w-7" />

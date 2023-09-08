@@ -15,7 +15,7 @@ const data = {
   groupname: "Bryan's Group",
   location: "NUS",
   deadline: "2023-10-10T00:00:00.000Z",
-  groupcount: 10,
+  groupcount: 6,
 };
 
 export default function Page() {
@@ -48,7 +48,7 @@ export default function Page() {
           </div>
         </div>
       )}
-      <Container navigateString="/">
+      <Container navigateString="/groupBuyMainPage/join">
         <div className="fixed bottom-16 flex justify-center items-center w-full">
           <button
             onClick={() => setIsOpen(true)}
@@ -59,7 +59,7 @@ export default function Page() {
         </div>
         <div className="w-full flex flex-col items-center gap-4">
           <Image
-            src="/product.png"
+            src="/productNew.jpg"
             width={500}
             height={500}
             alt="pic"
@@ -72,7 +72,13 @@ export default function Page() {
                 <IoShareOutline className="text-rose-600" size={25} />
               </div>
               <div className="flex justify-start items-center gap-1">
-                <div className="h-6 w-6 bg-blue-200 rounded-full"></div>
+                <Image
+                  src="/profileIcon1.jpeg"
+                  alt="img"
+                  width={100}
+                  height={100}
+                  className="h-6 w-6 rounded-full"
+                />
                 <p className="text-xs">
                   {data.groupleader} +{data.groupcount - 1} other members
                 </p>
@@ -116,7 +122,13 @@ export default function Page() {
               </div>
               <div className="flex justify-between items-center">
                 <div className="flex justify-start items-center gap-1">
-                  <div className="h-6 w-6 bg-blue-200 rounded-full"></div>
+                  <Image
+                    src="/profileIcon1.jpeg"
+                    alt="img"
+                    width={100}
+                    height={100}
+                    className="h-6 w-6 rounded-full"
+                  />
                   <p className="text-xs">{data.groupleader}</p>
                   <p className="text-xs font-bold ml-2">
                     {data.groupleaderRating}
