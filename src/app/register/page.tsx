@@ -13,26 +13,27 @@ export default function Register() {
   };
   return (
     <div className="flex w-screen h-screen items-center justify-center">
-      <div className="flex-col">
-        <form onSubmit={(e) => handleRegister(e)}>
+      <form onSubmit={(e) => handleRegister(e)} className="w-8/12">
+        <h1 className="text-xl font-bold text-center mb-10 drop-shadow-xl">
+          Create your account.
+        </h1>
+        <div className="flex flex-col gap-4">
           <Input
             placeholder="email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
-          />
-          <Input
-            placeholder="username"
-            type="username"
-            onChange={(e) => setUsername(e.target.value)}
+            className=""
           />
           <Input
             placeholder="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button type="submit">Register</Button>
-        </form>
-      </div>
+          <Button className="border bg-red-500 text-white" type="submit">
+            Register
+          </Button>
+        </div>
+      </form>
     </div>
   );
 }
