@@ -50,7 +50,7 @@ export default function Schedule() {
               : "No date selected..."}
           </div>
           <Select>
-            <SelectTrigger>
+            <SelectTrigger className="border-gray-100 rounded-lg">
               <SelectValue placeholder="Select your timeslot" />
             </SelectTrigger>
             <SelectContent>
@@ -58,7 +58,7 @@ export default function Schedule() {
                 <SelectItem
                   key={interval}
                   value={interval}
-                  className="bg-white"
+                  className="bg-white focus:bg-white"
                 >
                   <div onClick={() => setInterval(interval)}>{interval}</div>
                 </SelectItem>
