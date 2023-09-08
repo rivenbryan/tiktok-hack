@@ -1,20 +1,30 @@
+"use client";
 import React from "react";
-import Link from "next/link";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
+import { useRouter } from "next/navigation";
 
 type Props = {
   heading?: string;
   navigateURL?: string;
 };
 
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { BiDotsHorizontalRounded } from "react-icons/bi";
 export default function TiktokMobileHeader({ heading, navigateURL }: Props) {
+  const router = useRouter();
   return (
     <>
       <div className="bg-white p-2 flex gap-5 justify-between items-center">
-        <Link href={navigateURL === undefined ? "/" : navigateURL}>
+        <div
+          onClick={() => {
+            if (navigateURL === undefined) {
+              router.back();
+            } else {
+              router.push(navigateURL);
+            }
+          }}
+        >
           <AiOutlineArrowLeft color="black" size={30} />
-        </Link>
+        </div>
         {<div className="flex-grow-1 font-bold">{heading}</div>}
         <BiDotsHorizontalRounded color="black" size={30} />
       </div>

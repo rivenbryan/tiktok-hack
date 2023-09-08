@@ -58,7 +58,7 @@ export default function Schedule() {
                 <SelectItem
                   key={interval}
                   value={interval}
-                  className="bg-white focus:bg-white"
+                  className="bg-white"
                 >
                   <div onClick={() => setInterval(interval)}>{interval}</div>
                 </SelectItem>
