@@ -12,6 +12,29 @@ const center = {
   lng: 103.83591,
 };
 
+const marker1 = {
+  lat: 1.427862,
+  lng: 103.836159
+
+}
+
+const marker2 = {
+  lat: 1.427893,
+  lng: 103.834508
+}
+
+
+const marker3 = {
+  lat: 1.428644,
+  lng: 103.837965
+}
+
+const marker4 = {
+  
+}
+
+
+
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -43,7 +66,7 @@ function MyComponent() {
     // map.fitBounds(bounds);
   
     // This line will set the zoom level explicitly, which should override fitBounds
-    map.setZoom(18);  // Set your desired zoom level here
+    map.setZoom(16);  // Set your desired zoom level here
   
     setMap(map);
   }, []);
@@ -65,7 +88,9 @@ function MyComponent() {
       disableDefaultUI: true,
       styles: mapStyles }}
     >
-      <Marker position={center} />
+      <Marker position={marker1} />
+      <Marker position={marker2} />
+      <Marker position={marker3} />
       {/* Child components, such as markers, info windows, etc. */}
       <></>
     </GoogleMap>
