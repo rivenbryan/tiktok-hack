@@ -3,21 +3,36 @@ import React from "react";
 type Props = {
   setIsTierDiscount: React.Dispatch<React.SetStateAction<boolean>>;
   isTierDiscount: boolean;
+  setDiscount: React.Dispatch<React.SetStateAction<number>>;
+  setFinalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setPricePerUnit: React.Dispatch<React.SetStateAction<number>>;
+
 };
 
 export default function DropdownOption({
+  setFinalPrice,
+  setDiscount,
   setIsTierDiscount,
   isTierDiscount,
+  setPricePerUnit
+
 }: Props) {
   const [isOptionOpen, setIsOptionOpen] = React.useState<boolean>(false);
   const handleClick1 = () => {
+    setFinalPrice(null);
     setIsTierDiscount(true);
     setIsOptionOpen(false);
+    setPricePerUnit(null)
+    setDiscount(0);
   };
 
   const handleClick2 = () => {
+    console.log("hello")
     setIsTierDiscount(false);
     setIsOptionOpen(false);
+    setDiscount(0);
+    setPricePerUnit(null)
+    setFinalPrice(null);
   };
   return (
     <div className="relative inline-block text-left">
