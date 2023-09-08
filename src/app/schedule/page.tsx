@@ -50,7 +50,7 @@ export default function Schedule() {
               : "No date selected..."}
           </div>
           <Select>
-            <SelectTrigger>
+            <SelectTrigger className="border-gray-100 rounded-lg">
               <SelectValue placeholder="Select your timeslot" />
             </SelectTrigger>
             <SelectContent>
