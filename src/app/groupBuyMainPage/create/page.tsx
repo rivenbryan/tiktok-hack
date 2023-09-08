@@ -71,7 +71,13 @@ export default function Home({}: Props) {
           <div className="flex flex-col gap-5 ml-4 m-5">
             <h1 className="font-bold">Start A New Group!</h1>
             <div className="flex   border order-gray-300 rounded-l shadow-lg ">
-              <Image src="/product.png" height={70} width={70} alt={""} />
+              <Image
+                src="/productNew.jpg"
+                className="aspect-square"
+                height={70}
+                width={70}
+                alt={""}
+              />
               <div className="flex items-center">
                 <h1 className="font-light text-xs pl-2">
                   Plain T-Shirt (Normal)

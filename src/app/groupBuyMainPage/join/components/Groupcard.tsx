@@ -2,6 +2,7 @@ import React from "react";
 import { CgProfile } from "react-icons/cg";
 import { AiFillStar } from "react-icons/ai";
 import Image from "next/image";
+import Link from "next/link";
 type Props = {
   groupname: string;
   location: string;
@@ -25,7 +26,10 @@ export default function Groupcard({
 }: Props) {
   console.log(profileLink);
   return (
-    <div className="bg-white border border-gray-300 rounded-lg shadow-lg w-[22rem] p-2 mb-1">
+    <Link
+      href="/groupBuyLastPage"
+      className="bg-white border border-gray-300 rounded-lg shadow-lg w-[22rem] p-2 mb-1"
+    >
       <div className="flex gap-5">
         <div className="flex flex-col items-center gap-1 justify-between">
           {/* <CgProfile size={40} /> */}
@@ -56,6 +60,6 @@ export default function Groupcard({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
