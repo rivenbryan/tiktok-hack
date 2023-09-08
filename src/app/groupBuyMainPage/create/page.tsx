@@ -14,6 +14,7 @@ import { supabase } from "@/lib/db";
 type Props = {};
 export default function Home({}: Props) {
   const { address, groupName, setGroupName, quantity } = useGlobalContext();
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>("");
 
   console.log(groupName);
@@ -47,12 +48,24 @@ export default function Home({}: Props) {
 
   return (
     <>
-      <div className="fixed bottom-32 flex justify-center items-center w-full">
-        <button className="rounded-xl justify-center flex items-center h-10 bg-white border border-rose-600 text-xs px-4 py-6 gap-2 font-semibold">
-          <AiOutlineCheckCircle className="text-rose-600" size={20} />
-          Your $38.10 will be held until the deadline is met
-        </button>
-      </div>
+      {isOpen && (
+        <div className="fixed w-full h-full bg-black/30 z-10 flex justify-center items-center">
+          <div className="rounded-xl justify-center flex flex-col items-center  bg-white text-xs px-4 py-4 gap-2 font-semibold">
+            <div className="flex justify-center items-center gap-2">
+              <AiOutlineCheckCircle className="text-rose-600" size={20} />
+              Your $38.10 will be held until the deadline is met
+            </div>
+            <button
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              className="py-2 px-4 bg-rose-600 font-bold text-white rounded-lg"
+            >
+              Ok
+            </button>
+          </div>
+        </div>
+      )}
       <Container navigateString="/groupBuyMainPage">
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col gap-5 ml-4 m-5">
@@ -109,7 +122,10 @@ export default function Home({}: Props) {
               <h1 className="text-xs">Total before shipping</h1>
             </div>
             <button
-              onClick={handleClickPayment}
+              onClick={() => {
+                handleClickPayment();
+                setIsOpen(true);
+              }}
               className="bg-red-500 hover:bg-rose-600 text-white font-bold py-2 px-8 text-xs rounded"
             >
               Go to payment

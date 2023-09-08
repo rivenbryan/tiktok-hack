@@ -15,28 +15,29 @@ export default function page({}: Props) {
   return (
     <>
       <NavbarForAdmin />
-      <div className="bg-gray-100 flex items-center justify-center">
-        <div className="">
-          <div className="flex items-center h-20">
-            <div className="flexflex-row gap-5">
-              <div className="flex items-center">
-                <AiOutlineArrowLeft />
-                <h1 className="pl-2 font-light">Manage Products</h1>
-              </div>
-              <h1 className="text-2xl font-bold">Add New Product</h1>
+      <div className="bg-gray-100 flex items-center justify-center w-full px-5 pb-3 border-b border-gray-500 shadow-sm fixed top-14 ">
+        <div className="flex items-center h-20 w-full justify-between">
+          <div className=" gap-5">
+            <div className="flex items-center">
+              <AiOutlineArrowLeft />
+              <h1 className="pl-2 font-light">Manage Products</h1>
             </div>
-
-            <div className="flex ml-auto gap-2 pt-5">
-              <button className="bg-gray-200 px-2 rounded ">
-                <AiOutlineQuestionCircle />
-              </button>
-              <button className="bg-gray-200 py-2 px-4 rounded">
-                Save as a draft
-              </button>
-              <AdminButton text="Submit for review" />
-            </div>
+            <h1 className="text-2xl font-bold">Add New Product</h1>
           </div>
 
+          <div className="flex ml-auto gap-2 pt-5">
+            <button className="bg-gray-200 px-2 rounded ">
+              <AiOutlineQuestionCircle />
+            </button>
+            <button className="bg-gray-200 py-2 px-4 rounded">
+              Save as a draft
+            </button>
+            <AdminButton text="Submit for review" />
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 flex items-center justify-center">
+        <div className="">
           <div className="flex gap-5 mt-5 pb-5">
             <Leftbar />
             <div className="flex flex-col gap-5">
