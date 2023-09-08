@@ -3,20 +3,37 @@ import React from "react";
 type Props = {
   setIsTierDiscount: React.Dispatch<React.SetStateAction<boolean>>;
   isTierDiscount: boolean;
+  setDiscount: React.Dispatch<React.SetStateAction<number>>;
+  setFinalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setPricePerUnit: React.Dispatch<React.SetStateAction<number>>;
+
 };
 
-export default function DropdownOption({setIsTierDiscount,isTierDiscount}: Props) {
+export default function DropdownOption({
+  setFinalPrice,
+  setDiscount,
+  setIsTierDiscount,
+  isTierDiscount,
+  setPricePerUnit
+
+}: Props) {
   const [isOptionOpen, setIsOptionOpen] = React.useState<boolean>(false);
-  console.log(isTierDiscount);
   const handleClick1 = () => {
-    setIsTierDiscount(true) 
-    setIsOptionOpen(false)
-  }
+    setFinalPrice(null);
+    setIsTierDiscount(true);
+    setIsOptionOpen(false);
+    setPricePerUnit(null)
+    setDiscount(0);
+  };
 
   const handleClick2 = () => {
-    setIsTierDiscount(false) 
-    setIsOptionOpen(false)
-  }
+    console.log("hello")
+    setIsTierDiscount(false);
+    setIsOptionOpen(false);
+    setDiscount(0);
+    setPricePerUnit(null)
+    setFinalPrice(null);
+  };
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -28,7 +45,7 @@ export default function DropdownOption({setIsTierDiscount,isTierDiscount}: Props
           aria-expanded="true"
           aria-haspopup="true"
         >
-          {isTierDiscount === true ? ("Tier Discount") : ("Fixed Discount")}
+          {isTierDiscount === true ? "Tier Discount" : "Fixed Discount"}
           <svg
             className="-mr-1 h-5 w-5 text-gray-400"
             viewBox="0 0 20 20"

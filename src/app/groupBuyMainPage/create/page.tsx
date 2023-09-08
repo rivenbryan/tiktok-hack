@@ -13,7 +13,7 @@ import DatePicker from "../components/Datepicker";
 import { supabase } from "@/lib/db";
 type Props = {};
 export default function Home({}: Props) {
-  const { address, groupName, setGroupName } = useGlobalContext();
+  const { address, groupName, setGroupName, quantity } = useGlobalContext();
   const [selectedDate, setSelectedDate] = useState<string | null>("");
 
   console.log(groupName);

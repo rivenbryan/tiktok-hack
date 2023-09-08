@@ -30,19 +30,19 @@ export default function Listings() {
           <div className="px-2 py-2 border-b">Jewellery</div>
           <div className="px-2 py-2 border-b">Household</div>
         </div>
-        <div className="overflow-scroll flex-wrap flex gap-2 justify-center items-center pt-3">
-          <Link href="order" className="w-[48%] bg-white border rounded-xl">
+        <div className="flex justify-center items-center w-full overflow-scroll flex-wrap gap-2 p-2">
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -51,13 +51,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -70,6 +71,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -82,18 +84,18 @@ export default function Listings() {
               </div>
             </div>
           </Link>
-          <div className="w-[48%] bg-white border rounded-xl">
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -102,13 +104,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -121,6 +124,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -132,19 +136,19 @@ export default function Listings() {
                 4.8 | 15.3k sold
               </div>
             </div>
-          </div>
-          <div className="w-[48%] bg-white border rounded-xl">
+          </Link>
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -153,13 +157,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -172,6 +177,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -183,19 +189,19 @@ export default function Listings() {
                 4.8 | 15.3k sold
               </div>
             </div>
-          </div>
-          <div className="w-[48%] bg-white border rounded-xl">
+          </Link>
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -204,13 +210,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -223,6 +230,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -234,19 +242,19 @@ export default function Listings() {
                 4.8 | 15.3k sold
               </div>
             </div>
-          </div>
-          <div className="w-[48%] bg-white border rounded-xl">
+          </Link>
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -255,13 +263,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -274,6 +283,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -285,19 +295,19 @@ export default function Listings() {
                 4.8 | 15.3k sold
               </div>
             </div>
-          </div>
-          <div className="w-[48%] bg-white border rounded-xl">
+          </Link>
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -306,13 +316,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -325,6 +336,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -336,19 +348,19 @@ export default function Listings() {
                 4.8 | 15.3k sold
               </div>
             </div>
-          </div>
-          <div className="w-[48%] bg-white border rounded-xl">
+          </Link>
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -357,13 +369,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -376,6 +389,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -387,19 +401,19 @@ export default function Listings() {
                 4.8 | 15.3k sold
               </div>
             </div>
-          </div>
-          <div className="w-[48%] bg-white border rounded-xl">
+          </Link>
+          <Link href="/order" className="w-[48%] bg-white border rounded-xl">
             <div className="relative">
               <Image
-                src="/product.png"
-                width={100}
+                src="/productNew.jpg"
+                width={1000}
                 height={100}
                 alt="pic"
-                className="w-full rounded-t-xl"
+                className="w-full h-[15rem]"
               />
               <div className="flex-row absolute bottom-0 left-0 mb-3 ml-3 text-white inline-block">
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -408,13 +422,14 @@ export default function Listings() {
                 Bryan Tay
               </div>
             </div>
+
             <div className="px-2 py-2">
               <div className="flex flex-row">
                 <h1>
                   Plain T-Shirt <span>(NORMAL)</span>
                 </h1>
                 <Image
-                  src="/product.png"
+                  src="/productNew.jpg"
                   width={100}
                   height={100}
                   alt="pic"
@@ -427,6 +442,7 @@ export default function Listings() {
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
                 S$3 off
               </div>
+
               <div className="text-sm opacity-60">
                 <Image
                   src="/star.png"
@@ -438,9 +454,11 @@ export default function Listings() {
                 4.8 | 15.3k sold
               </div>
             </div>
-          </div>
+          </Link>
         </div>
-        <TiktokMobileFooter />
+        <div className="mt-auto">
+          <TiktokMobileFooter />
+        </div>
       </div>
     </>
   );

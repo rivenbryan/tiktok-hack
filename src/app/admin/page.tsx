@@ -10,13 +10,13 @@ import Image from "next/image";
 import SalesInformationComponent from "./components/SalesInformationComponent";
 import AdminButton from "./components/AdminButton";
 import ShippingComponent from "./components/ShippingComponent";
-import media_image from '../../../public/media_image.png'
+import media_image from "../../../public/media_image.png";
 export default function page({}: Props) {
   return (
     <>
       <NavbarForAdmin />
-      <div className="bg-gray-100 ">
-        <div className="ml-72 mr-72">
+      <div className="bg-gray-100 flex items-center justify-center">
+        <div className="">
           <div className="flex items-center h-20">
             <div className="flexflex-row gap-5">
               <div className="flex items-center">
@@ -33,7 +33,7 @@ export default function page({}: Props) {
               <button className="bg-gray-200 py-2 px-4 rounded">
                 Save as a draft
               </button>
-              <AdminButton text="Submit for review"/>
+              <AdminButton text="Submit for review" />
             </div>
           </div>
 
@@ -86,7 +86,7 @@ export default function page({}: Props) {
                   <textarea
                     id="message"
                     rows={8}
-                    className="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300"
+                    className=" block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300"
                     placeholder="Enter a product description..."
                   ></textarea>
                 </div>
@@ -98,7 +98,14 @@ export default function page({}: Props) {
                 <ShippingComponent />
               </Card>
             </div>
-
+            <div className="bg-white flex flex-col p-2 pl-4 gap-2 rounded-md">
+              <div className="flex pt-5 pr-36 pl-2 items-center ">
+                <h1 className=" text-xl pl-2 font-bold ">Preview</h1>
+              </div>
+              <div>
+                <h1 className="text-zxl font-light pl-14 "> - </h1>
+              </div>
+            </div>
           </div>
         </div>
       </div>
