@@ -53,7 +53,7 @@ export default function Home({}: Props) {
           <div className="rounded-xl justify-center flex flex-col items-center  bg-white text-xs px-4 py-4 gap-2 font-semibold">
             <div className="flex justify-center items-center gap-2">
               <AiOutlineCheckCircle className="text-rose-600" size={20} />
-              Your $38.10 will be held until the deadline is met
+              Your $20.00 will be held until the deadline is met
             </div>
             <Link
               href="/chat"
