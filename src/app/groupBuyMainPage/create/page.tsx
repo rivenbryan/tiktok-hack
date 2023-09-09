@@ -121,7 +121,7 @@ export default function Home({}: Props) {
           </div>
           <div className="flex justify-between mt-auto ml-4 m-5">
             <div className="flex flex-col ">
-              <h1 className="text-rose-600 font-bold">$38.1</h1>
+              <h1 className="text-rose-600 font-bold">$20.00</h1>
               <h1 className="text-xs">Total before shipping</h1>
             </div>
             <button
