@@ -15,7 +15,7 @@ export default function page({}: Props) {
   return (
     <>
       <NavbarForAdmin />
-      <div className="bg-gray-100 flex items-center justify-center w-full px-5 pb-3 border-b border-gray-500 shadow-sm fixed top-14 ">
+      <div className="bg-gray-100 flex items-center justify-center w-full px-5 pb-3 border-b border-gray-500 shadow-sm fixed top-14 z-10">
         <div className="flex items-center h-20 w-full justify-between">
           <div className=" gap-5">
             <div className="flex items-center">
@@ -36,7 +36,7 @@ export default function page({}: Props) {
           </div>
         </div>
       </div>
-      <div className="bg-gray-100 flex items-center justify-center">
+      <div className="bg-gray-100 flex items-center justify-center mt-36">
         <div className="">
           <div className="flex gap-5 mt-5 pb-5">
             <Leftbar />

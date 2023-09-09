@@ -84,6 +84,17 @@ export default function Home({}: Props) {
                 </h1>
               </div>
             </div>
+            <div className="flex  justify-between items-center">
+              <div className="flex flex-col text-xs">
+                <h1 className="mb-1 ">Pick up Location</h1>
+                <h1 className="font-bold">
+                  {address === "" ? "No address selected" : address}
+                </h1>
+              </div>
+              <Link href="/groupBuyMainPage/create/address">
+                <h1 className="text-rose-600 text-xs font-bold">Change</h1>
+              </Link>
+            </div>
             <div className=" ">
               <h1 className="mb-1 ">Group Name </h1>
               <input
@@ -95,18 +106,6 @@ export default function Home({}: Props) {
                 placeholder={"Enter your group name.."}
                 required
               />
-            </div>
-
-            <div className="flex  justify-between items-center">
-              <div className="flex flex-col text-xs">
-                <h1 className="mb-1 ">Pick up Location</h1>
-                <h1 className="font-bold">
-                  {address === "" ? "No address selected" : address}
-                </h1>
-              </div>
-              <Link href="/groupBuyMainPage/create/address">
-                <h1 className="text-rose-600 text-xs font-bold">Change</h1>
-              </Link>
             </div>
 
             <div className="flex justify-between items-center">
