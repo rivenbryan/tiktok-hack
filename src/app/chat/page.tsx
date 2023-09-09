@@ -39,7 +39,7 @@ import {
 } from "@/components/ui/command";
 import axios from "axios";
 
-const WHOISLEADER_REPLY_MESSAGES = ["Sarah"];
+const WHOISLEADER_REPLY_MESSAGES = ["SilentWolf is the leader"];
 const SCHEDULE_REPLY_MESSAGES = [
   "The deadline for the purchase is up. The order now will be dispatched to the seller. Please click on the link below to a schedule a pickup timing",
 ];
@@ -54,11 +54,9 @@ const UNKNOWN_REPLY_MESSAGE = [
   "Sorry, we do not recognize your command. Can you try again?",
 ];
 const MYPICKTIME_REPLY_MESSAGES = [
-  "Your pick up time is 12pm to 1pm, on Sunday, 13 June 2023",
+  "Your pick up time is 6.30pm to 7.00pm, on Saturday, 16 Sep 2023",
 ];
-const ORDERSTATUS_REPLY_MESSAGES = [
-  "Your order is currently being processed. It will be arrived in 2 days time.",
-];
+const ORDERSTATUS_REPLY_MESSAGES = ["Your order is currently being processed."];
 
 const commands = [
   {
