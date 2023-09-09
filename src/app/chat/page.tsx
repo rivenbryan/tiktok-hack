@@ -46,7 +46,7 @@ const SCHEDULE_REPLY_MESSAGES = [
 const SCHEDULE_REPLY_COMPONENTS = [
   <SchedulePickupComponent
     scheduleURl="/schedule"
-    title="Custsomizable T-Shirt"
+    title="PLAIN T-SHIRT [NORMAL]"
     key={Math.random()}
   />,
 ];
@@ -324,7 +324,7 @@ export default function Chat() {
           </form>
           {text.startsWith("/") &&
             !commands.map((command) => command.value).includes(text) && (
-              <div className={cn("absolute bottom-[100%]  bg-white", "w-full")}>
+              <div className={cn("absolute bottom-16 bg-white", "w-full")}>
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
                   <CommandGroup heading="Suggestions">
@@ -376,7 +376,7 @@ function SchedulePickupComponent({
             width={100}
             height={100}
             className="h-14 w-14"
-            src={"/product.png"}
+            src={"/productNew.jpg"}
           />
           <h1>{title}</h1>
         </div>
