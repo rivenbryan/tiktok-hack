@@ -9,12 +9,12 @@ import Link from "next/link";
 
 const data = {
   days: 5,
-  distance: 10,
-  groupleader: "Bryan Tay",
-  groupleaderRating: 3.4,
-  groupname: "Bryan's Group",
-  location: "NUS",
-  deadline: "2023-10-10T00:00:00.000Z",
+  distance: 600,
+  groupleader: "@SilentWolf",
+  groupleaderRating: 4.7,
+  groupname: "Discount Dynasty",
+  location: "Yishun Ave 6",
+  deadline: "2023-09-20T00:00:00.000Z",
   groupcount: 6,
 };
 
@@ -73,7 +73,7 @@ export default function Page() {
               </div>
               <div className="flex justify-start items-center gap-1">
                 <Image
-                  src="/profileIcon1.jpeg"
+                  src="/profileIcon2.jpeg"
                   alt="img"
                   width={100}
                   height={100}
@@ -97,7 +97,31 @@ export default function Page() {
               </div>
             </div>
             <div className="w-full flex flex-col border border-gray-300 rounded-xl p-3 gap-1">
-              <p className="text-sm font-semibold">Order Details</p>
+              <p className="text-sm font-semibold">Group Order Details</p>
+              <div className="flex justify-between items-center">
+                <p className="text-xs">PLAIN T-SHIRT (S) x 7</p>
+                <p className="text-xs font-bold ">$70.00</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-xs">PLAIN T-SHIRT (M) x 10</p>
+                <p className="text-xs font-bold ">$100.00</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-xs">PLAIN T-SHIRT (L) x 5</p>
+                <p className="text-xs font-bold ">$50.00</p>
+              </div>
+              <div className="flex justify-between items-center mt-4">
+                <p className="text-xs font-bold">Before discount</p>
+                <p className="text-xs font-bold ">$220.00</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-xs font-bold">Group Discount (-10%)</p>
+                <p className="text-xs font-bold ">-$22.00</p>
+              </div>
+              <div className="flex justify-between items-center ">
+                <p className="text-xs font-bold"> Group Total</p>
+                <p className="text-xs font-bold text-rose-600">$198.00</p>
+              </div>
             </div>
             <div className="w-full flex flex-col border border-gray-300 rounded-xl p-3 gap-1">
               <p className="text-sm font-semibold">Collection Details</p>
@@ -105,7 +129,7 @@ export default function Page() {
                 <p>Items will be delivered to</p>
                 <p className="font-bold">{data.location}</p>
                 <p className="font-bold text-rose-600">
-                  ({data.distance}km away)
+                  ({data.distance}m away)
                 </p>
               </div>
             </div>
@@ -123,7 +147,7 @@ export default function Page() {
               <div className="flex justify-between items-center">
                 <div className="flex justify-start items-center gap-1">
                   <Image
-                    src="/profileIcon1.jpeg"
+                    src="/profileIcon2.jpeg"
                     alt="img"
                     width={100}
                     height={100}

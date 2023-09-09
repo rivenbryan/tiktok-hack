@@ -33,10 +33,16 @@ export default function Groupcard({
       <div className="flex gap-5">
         <div className="flex flex-col items-center gap-1 justify-between">
           {/* <CgProfile size={40} /> */}
-          <Image src={profileLink} alt="" height={50} width={40}></Image>
+          <Image
+            src={profileLink}
+            alt=""
+            className="w-20 rounded-xl"
+            height={100}
+            width={100}
+          ></Image>
           <div className="flex gap-1">
             <p className="text-xs">{groupleaderRating} </p>
-            <AiFillStar />
+            <AiFillStar className="text-yellow-500" />
           </div>
         </div>
         <div className="flex flex-col">

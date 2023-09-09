@@ -55,14 +55,12 @@ export default function Home({}: Props) {
               <AiOutlineCheckCircle className="text-rose-600" size={20} />
               Your $38.10 will be held until the deadline is met
             </div>
-            <button
-              onClick={() => {
-                setIsOpen(false);
-              }}
+            <Link
+              href="/chat"
               className="py-2 px-4 bg-rose-600 font-bold text-white rounded-lg"
             >
               Ok
-            </button>
+            </Link>
           </div>
         </div>
       )}

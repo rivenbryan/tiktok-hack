@@ -5,9 +5,9 @@ export default function ChatLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-screen overflow-y-hidden">
+    <div className="h-[100svh]">
       <TiktokMobileHeader heading="Chat room" />
-      {children}
+      <div className="w-full h-[calc(100svh-50px)]">{children}</div>
     </div>
   );
 }

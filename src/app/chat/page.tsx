@@ -231,8 +231,8 @@ export default function Chat() {
   };
 
   return (
-    <div className="w-screen h-screen items-center flex flex-col pt-6 relative">
-      <div className="w-full px-4 h-[80%] flex-grow-1 overflow-y-scroll">
+    <div className="w-full h-full items-center flex justify-between flex-col">
+      <div className="w-full px-2 overflow-y-scroll h-[90%]">
         {messages.map((message: any, index) => (
           <div
             key={index}
@@ -276,21 +276,17 @@ export default function Chat() {
                         <DropdownMenuItem
                           onClick={() => handleTranslate(message, "chinese")}
                         >
-                          <Mail className="mr-2 h-4 w-4" />
-                          <span>Chinese</span>
+                          <span className="w-full text-center">Chinese</span>
                         </DropdownMenuItem>
                         <DropdownMenuItem
                           onClick={() => handleTranslate(message, "english")}
                         >
-                          <MessageSquare className="mr-2 h-4 w-4" />
-                          <span>English</span>
+                          <span className="w-full text-center">English</span>
                         </DropdownMenuItem>
-                        <DropdownMenuSeparator />
                         <DropdownMenuItem
                           onClick={() => handleTranslate(message, "malay")}
                         >
-                          <PlusCircle className="mr-2 h-4 w-4" />
-                          <span>Malay</span>
+                          <span className="w-full text-center">Malay</span>
                         </DropdownMenuItem>
                       </DropdownMenuSubContent>
                     </DropdownMenuPortal>
@@ -302,12 +298,11 @@ export default function Chat() {
         ))}
         <div ref={lastMessageRef}></div>
       </div>
-      <hr className="w-screen inline-block mb-3" />
-      <div className="w-screen relative">
+      <div className="w-full">
         <Command>
           <form
             onSubmit={handleSubmit}
-            className="w-full flex items-center bottom-0 mb-5 justify-center pl-4"
+            className="w-full flex items-center bottom-0 justify-center pl-4 py-2 border-t border-gray-200"
           >
             <div className="relative w-[85%]">
               <CommandInput
@@ -317,7 +312,7 @@ export default function Chat() {
                     ? "Please login first to send a message"
                     : "Send a message..."
                 }`}
-                className="bg-gray-100 border-none py-4 pl-4 pr-14 rounded-xl"
+                className="bg-gray-100 border-none pl-4 pr-14 rounded-xl"
                 onValueChange={setText}
                 value={text}
               />
@@ -352,7 +347,7 @@ export default function Chat() {
         </Command>
       </div>
       {loading && (
-        <div className="absolute w-screen h-full items-center flex justify-center bg-white opacity-30">
+        <div className="fixed w-screen h-full items-center flex justify-center bg-white opacity-30">
           <Image
             src={"/Loading.svg"}
             alt="Loading..."

@@ -10,7 +10,7 @@ export default function Page() {
         <div className="flex w-full border-b border-gray-200 justify-between p-4">
           <div className="flex justify-start items-center gap-3">
             <Image
-              src="/profileIcon1.jpeg"
+              src="/profileIcon2.jpeg"
               alt="img"
               width={100}
               height={100}
@@ -18,8 +18,8 @@ export default function Page() {
             />
             <div className="flex flex-col justify-between  items-centerh-full">
               <div className="flex">
-                <p className="text-xs font-semibold">Bryan Tay</p>
-                <p className="text-xs font-bold ml-2">3.4</p>
+                <p className="text-xs font-semibold">SIlentWolf</p>
+                <p className="text-xs font-bold ml-2">4.7</p>
                 <AiFillStar size={12} className="text-yellow-500" />
               </div>
               <p className="text-xs">Owner</p>
@@ -33,7 +33,7 @@ export default function Page() {
         <div className="flex w-full border-b border-gray-200 justify-between items-center p-4">
           <div className="flex justify-start items-center gap-3">
             <Image
-              src="/profileIcon2.jpeg"
+              src="/profileIcon1.jpeg"
               alt="img"
               width={100}
               height={100}
@@ -41,7 +41,7 @@ export default function Page() {
             />
             <div className="flex flex-col justify-between  items-centerh-full">
               <div className="flex">
-                <p className="text-xs font-semibold">Bryan Tay</p>
+                <p className="text-xs font-semibold">AndrewHehe</p>
               </div>
               <p className="text-xs">Member</p>
             </div>
@@ -58,7 +58,7 @@ export default function Page() {
             />
             <div className="flex flex-col justify-between  items-centerh-full">
               <div className="flex">
-                <p className="text-xs font-semibold">Bryan Tay</p>
+                <p className="text-xs font-semibold">KristianAuto</p>
               </div>
               <p className="text-xs">Member</p>
             </div>
@@ -75,7 +75,7 @@ export default function Page() {
             />
             <div className="flex flex-col justify-between  items-centerh-full">
               <div className="flex">
-                <p className="text-xs font-semibold">Bryan Tay</p>
+                <p className="text-xs font-semibold">Rafimpossible</p>
               </div>
               <p className="text-xs">Member</p>
             </div>
@@ -92,7 +92,7 @@ export default function Page() {
             />
             <div className="flex flex-col justify-between  items-centerh-full">
               <div className="flex">
-                <p className="text-xs font-semibold">Bryan Tay</p>
+                <p className="text-xs font-semibold">HiHiTzekean</p>
               </div>
               <p className="text-xs">Member</p>
             </div>
@@ -109,7 +109,7 @@ export default function Page() {
             />
             <div className="flex flex-col justify-between  items-centerh-full">
               <div className="flex">
-                <p className="text-xs font-semibold">Bryan Tay</p>
+                <p className="text-xs font-semibold">PengKeat2000</p>
               </div>
               <p className="text-xs">Member</p>
             </div>

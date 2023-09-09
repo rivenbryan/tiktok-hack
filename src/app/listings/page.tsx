@@ -66,10 +66,10 @@ export default function Listings() {
                 />
               </div>
               <h3 className="text-red-700 font-bold">
-                S$<span className="text-2xl">9.90</span>
+                S$<span className="text-2xl">10.00</span>
               </h3>
               <div className="my-2 bg-red-200 inline-block px-2 rounded text-red-700 font-semibold">
-                S$3 off
+                Up to S$1 Off
               </div>
 
               <div className="text-sm opacity-60">
@@ -80,7 +80,7 @@ export default function Listings() {
                   alt="pic"
                   className="h-3 w-3 inline-block mr-2 mb-1"
                 />
-                4.8 | 15.3k sold
+                4.7 | 1.3k sold
               </div>
             </div>
           </Link>
@@ -133,7 +133,7 @@ export default function Listings() {
                   alt="pic"
                   className="h-3 w-3 inline-block mr-2 mb-1"
                 />
-                4.8 | 5.3k sold
+                4.5 | 5.3k sold
               </div>
             </div>
           </Link>
@@ -186,7 +186,7 @@ export default function Listings() {
                   alt="pic"
                   className="h-3 w-3 inline-block mr-2 mb-1"
                 />
-                4.8 | 145 sold
+                4.1 | 145 sold
               </div>
             </div>
           </Link>
@@ -292,7 +292,7 @@ export default function Listings() {
                   alt="pic"
                   className="h-3 w-3 inline-block mr-2 mb-1"
                 />
-                4.8 | 15.3k sold
+                4.3 | 7.1k sold
               </div>
             </div>
           </Link>
@@ -345,7 +345,7 @@ export default function Listings() {
                   alt="pic"
                   className="h-3 w-3 inline-block mr-2 mb-1"
                 />
-                4.8 | 15.3k sold
+                4.9 | 20k sold
               </div>
             </div>
           </Link>

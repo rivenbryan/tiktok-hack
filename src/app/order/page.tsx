@@ -72,14 +72,20 @@ function Page(props: Props) {
                   onClick={() => {
                     setSize(size === "S" ? "" : "S");
                   }}
-                  className={`border-2 px-2 py-1 min-w-[50px] text-center" +
+                  className={`border-2 px-2 py-1 min-w-[50px] text-center"
                       ${size === "S" ? " border-rose-600" : " border-gray"}`}
                 >
                   S
                 </button>
                 {["M", "L", "XL", "XXL", "XXXL"].map((value) => (
                   <button
-                    className="border-2 border-gray-300 px-2 py-1 min-w-[50px] text-center bg-gray-300"
+                    onClick={() => {
+                      setSize(size === value ? "" : value);
+                    }}
+                    className={`border-2 border-gray-300 px-2 py-1 min-w-[50px] text-center bg-gray-300
+                      ${
+                        size === value ? " border-rose-600" : " border-gray-300"
+                      }`}
                     key={value}
                   >
                     {value}
@@ -87,7 +93,9 @@ function Page(props: Props) {
                 ))}
               </div>
               <div className="flex w-full justify-between items-center mt-4">
-                <p className="font-semibold text-gray-500 text-sm">Quantity</p>
+                <p className="font-semibold text-gray-500 text-sm">
+                  Qty: {size !== "" && (size === "S" ? "100 left" : "Sold out")}
+                </p>
                 <div className="flex w-32 border-2 border-gray-200 h-8 rounded-lg justify-evenly items-center">
                   <AiOutlineMinus
                     onClick={() => {
