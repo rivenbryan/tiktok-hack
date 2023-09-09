@@ -1,5 +1,7 @@
 # Project Society
 
+https://github.com/rivenbryan/tiktok-hack/assets/44837096/3e208b65-74a2-42af-ba92-9df254f598a9
+
 ## Problem statement
 
 Hackathon: TikTok Hackathon Challenge 2023
