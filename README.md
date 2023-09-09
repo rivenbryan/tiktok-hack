@@ -6,6 +6,11 @@ Hackathon: TikTok Hackathon Challenge 2023
 Group: Team Hola
 Chosen statement: 3. E-Commerce
 
+## Quick start
+
+1. [Seller page access](https://tiktok-hack.vercel.app/admin)
+2. [Consumer page access](https://tiktok-hack.vercel.app)
+
 ## Inspiration
 
 We aim to reignite the communal living (kampung spirit) back into Singaporeans that was lost during the COVID-19 pandemic. We have seen past implementation of TikTok integration on telegram, where people cited that they want to be able to interact and talk about trending videos. We saw this existing gap, and ideated a solution that (1) allows users to chat with each other and (2) common activity of purchasing items at a discount through the popular concept of group buy.
@@ -20,7 +25,9 @@ We aim to reignite the communal living (kampung spirit) back into Singaporeans t
 
 ## Usage
 
-The app has already been deployed and can be accessed [here](https://tiktok-hack.vercel.app) via your own browser. Alternatively, if you want to build and run the app locally, you can follow our instructions below.
+The app has already been deployed and you can access the page as a customer [here](https://tiktok-hack.vercel.app) via your own browser. If you would like to access the page as a seller you can also do so [here](https://tiktok-hack.vercel.app/admin). Do note that the submit buttons are not yet implemented and thus would seem like it is not functional. The group chat features are working and you can try out chatting or translating the chat.
+
+Alternatively, if you want to build and run the app locally, you can follow our instructions below.
 
 ### Run locally
 
