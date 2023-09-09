@@ -10,6 +10,14 @@ Chosen statement: 3. E-Commerce
 
 We aim to reignite the communal living (kampung spirit) back into Singaporeans that was lost during the COVID-19 pandemic. We have seen past implementation of TikTok integration on telegram, where people cited that they want to be able to interact and talk about trending videos. We saw this existing gap, and ideated a solution that (1) allows users to chat with each other and (2) common activity of purchasing items at a discount through the popular concept of group buy.
 
+## Tech Stack
+
+1. Next.js
+2. Tailwind
+3. Suprabase
+4. Socket.io
+5. Figma
+
 ## Usage
 
 The app has already been deployed and can be accessed [here](https://tiktok-hack.vercel.app) via your own browser. Alternatively, if you want to build and run the app locally, you can follow our instructions below.
