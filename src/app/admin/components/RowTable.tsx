@@ -2,11 +2,11 @@ import React from "react";
 import Textbox from "./Textbox";
 
 type Props = {
-    isVariationChecked: boolean;
-    option: string;
+  isVariationChecked: boolean;
+  option: string;
 };
 
-export default function RowTable({isVariationChecked, option}: Props) {
+export default function RowTable({ isVariationChecked, option }: Props) {
   return (
     <tr className="bg-white border-b ">
       {isVariationChecked && (
@@ -26,12 +26,7 @@ export default function RowTable({isVariationChecked, option}: Props) {
         <Textbox height="1.5rem" />
       </td>
       <td className="px-6 py-4">
-        <a
-          href="#"
-          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-        >
-          <Textbox height="1.5rem" />
-        </a>
+        <Textbox height="1.5rem" />
       </td>
     </tr>
   );
