@@ -5,6 +5,7 @@ import { signUpWithEmail } from "@/lib/auth";
 import { useState, FormEvent } from "react";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +32,19 @@ export default function Register() {
       setIsLoading(false);
     }
   };
-  return (
+  return isLoading ? (
+    <>
+      <div className="h-full w-full flex opacity-50 bg-white justify-center items-center">
+        <Image
+          src={"/Loading.svg"}
+          alt="Loading..."
+          width={100}
+          height={100}
+          className="bg-none"
+        />
+      </div>
+    </>
+  ) : (
     <div className="flex w-screen h-screen items-center justify-center">
       <form onSubmit={(e) => handleRegister(e)} className="w-8/12">
         <h1 className="text-xl font-bold text-center mb-10 drop-shadow-xl">
