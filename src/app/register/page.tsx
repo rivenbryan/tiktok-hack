@@ -19,7 +19,7 @@ export default function Register() {
     setIsLoading(true);
     setSucccess(false);
     try {
-      await signUpWithEmail(email, password, username);
+      await signUpWithEmail(email, password);
       setSucccess;
       setTimeout(() => {
         router.push("/login");
@@ -75,6 +75,16 @@ export default function Register() {
           </Button>
         </div>
       </form>
+      {isLoading && (
+        <div className="fixed w-screen h-full items-center flex justify-center bg-white opacity-30">
+          <Image
+            src={"/Loading.svg"}
+            alt="Loading..."
+            width={100}
+            height={100}
+          />
+        </div>
+      )}
     </div>
   );
 }
