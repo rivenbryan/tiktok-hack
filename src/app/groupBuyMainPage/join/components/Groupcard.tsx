@@ -12,11 +12,13 @@ type Props = {
   distance: number;
   days: number;
   profileLink: string;
+  groupId: string;
 };
 
 export default function Groupcard({
   groupname,
   location,
+  groupId,
   deadline,
   groupleader,
   groupleaderRating,
@@ -24,10 +26,9 @@ export default function Groupcard({
   days,
   profileLink,
 }: Props) {
-  console.log(profileLink);
   return (
     <Link
-      href="/groupBuyLastPage"
+      href={`/groupBuyLastPage/${groupId}`}
       className="bg-white border border-gray-300 rounded-lg shadow-lg w-[22rem] p-2 mb-1"
     >
       <div className="flex gap-5">

@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import Link from "next/link";
 import React, { FormEventHandler } from "react";
 
 type Props = {
@@ -7,7 +8,6 @@ type Props = {
 };
 
 export default function AdminButton({ text, handleClick }: Props) {
-
   return (
     <button
       onClick={handleClick}

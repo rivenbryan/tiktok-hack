@@ -4,7 +4,7 @@ import TiktokMobileFooter from "./TiktokMobileFooter";
 
 type Props = {
   children: React.ReactNode;
-  navigateString: string;
+  navigateString?: string;
 };
 
 export default function Container({ children, navigateString }: Props) {

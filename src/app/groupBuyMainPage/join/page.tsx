@@ -6,7 +6,8 @@ import Groupcard from "./components/Groupcard";
 import Dropdownbox from "./components/Dropdownbox";
 import { supabase } from "@/lib/db";
 import Image from "next/image";
-interface Group {
+export interface Group {
+  id: string;
   groupname: string;
   location: string;
   deadline: string;
@@ -23,7 +24,6 @@ export default function Home({}: Props) {
   const [selectedOption, setSelectedOption] = useState("");
   const [filterText, setFilterText] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
-  console.log(groups)
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
@@ -39,8 +39,7 @@ export default function Home({}: Props) {
           .from("group")
           .select("*")
           .filter("groupleader", "ilike", `%${filterText}%`);
-        console.log(data);
-        setGroups(data);
+        setGroups(data as Group[]);
       } catch (error) {
         console.log(error);
       } finally {
@@ -54,8 +53,7 @@ export default function Home({}: Props) {
     const fetchData = async () => {
       try {
         const { data, error } = await supabase.from("group").select("*");
-        console.log(data);
-        setGroups(data);
+        setGroups(data as Group[]);
       } catch (error) {
         console.log(error);
       } finally {
@@ -73,7 +71,7 @@ export default function Home({}: Props) {
           .from("group")
           .select()
           .order("groupleaderRating", { ascending: false });
-        setGroups(data);
+        setGroups(data as Group[]);
       } catch (error) {
         console.log(error);
       } finally {
@@ -87,7 +85,7 @@ export default function Home({}: Props) {
           .from("group")
           .select()
           .order("distance", { ascending: true });
-        setGroups(data);
+        setGroups(data as Group[]);
       } catch (error) {
         console.log(error);
       } finally {
@@ -109,7 +107,7 @@ export default function Home({}: Props) {
   }, [selectedOption]);
 
   return (
-    <Container navigateString="/groupBuyMainPage">
+    <Container>
       <div className="flex m-5 justify-center items-center ">
         <h1 className="font-bold">Nearby Groups</h1>
         <div className="flex ml-auto justify-center items-center gap-1">
@@ -137,6 +135,7 @@ export default function Home({}: Props) {
         <div className="flex flex-col gap-3 items-center justify-center mt-2">
           {groups.map((group, index) => (
             <Groupcard
+              groupId={group.id}
               profileLink={group.profileLink}
               days={group.days}
               key={index}
