@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import Link from "next/link";
 import React, { FormEventHandler } from "react";
 
 type Props = {
@@ -7,13 +8,14 @@ type Props = {
 };
 
 export default function AdminButton({ text, handleClick }: Props) {
-
   return (
-    <button
-      onClick={handleClick}
-      className="py-2 px-4 rounded bg-emerald-600 text-sm text-white"
-    >
-      {text}
-    </button>
+    <Link href="/thankyou">
+      <button
+        onClick={handleClick}
+        className="py-2 px-4 rounded bg-emerald-600 text-sm text-white"
+      >
+        {text}
+      </button>
+    </Link>
   );
 }
