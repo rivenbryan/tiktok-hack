@@ -11,6 +11,7 @@ import SalesInformationComponent from "./components/SalesInformationComponent";
 import AdminButton from "./components/AdminButton";
 import ShippingComponent from "./components/ShippingComponent";
 import media_image from "../../../public/media_image.png";
+import Link from "next/link";
 export default function page({}: Props) {
   return (
     <>
@@ -32,7 +33,9 @@ export default function page({}: Props) {
             <button className="bg-gray-200 py-2 px-4 rounded">
               Save as a draft
             </button>
-            <AdminButton text="Submit for review" />
+            <Link href="/thankyou">
+              <AdminButton text="Submit for review" />
+            </Link>
           </div>
         </div>
       </div>

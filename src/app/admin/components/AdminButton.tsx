@@ -9,13 +9,11 @@ type Props = {
 
 export default function AdminButton({ text, handleClick }: Props) {
   return (
-    <Link href="/thankyou">
-      <button
-        onClick={handleClick}
-        className="py-2 px-4 rounded bg-emerald-600 text-sm text-white"
-      >
-        {text}
-      </button>
-    </Link>
+    <button
+      onClick={handleClick}
+      className="py-2 px-4 rounded bg-emerald-600 text-sm text-white"
+    >
+      {text}
+    </button>
   );
 }
