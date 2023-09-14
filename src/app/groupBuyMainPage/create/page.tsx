@@ -64,6 +64,10 @@ export default function Home({}: Props) {
           </div>
         </div>
       )}
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      ></meta>
       <Container>
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col gap-5 ml-4 m-5">
