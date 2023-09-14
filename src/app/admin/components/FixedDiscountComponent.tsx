@@ -2,10 +2,11 @@ import React from "react";
 import Textbox from "./Textbox";
 
 type Props = {
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange1: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange2: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function FixedDiscountComponent({ handleChange }: Props) {
+export default function FixedDiscountComponent({ handleChange1, handleChange2}: Props) {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
       <table className="w-full text-sm text-left text-gray-500">
@@ -20,7 +21,7 @@ export default function FixedDiscountComponent({ handleChange }: Props) {
 
             <td className="px-6 py-4">
               <input
-                onChange={handleChange}
+                onChange={handleChange1}
                 type="text"
                 className="border border-gray-300 text-gray-900 rounded-lg w-full block h-6 py-1 "
                 placeholder=""
@@ -37,7 +38,8 @@ export default function FixedDiscountComponent({ handleChange }: Props) {
 
             <td className="px-6 py-4">
               <input
-                onChange={handleChange}
+                onChange={handleChange2}
+                defaultValue={100}
                 type="text"
                 className="border border-gray-300 text-gray-900 rounded-lg w-full block h-6 w-10 py-1 "
                 placeholder=""
