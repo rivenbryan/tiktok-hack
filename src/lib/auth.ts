@@ -6,8 +6,8 @@ export async function signInWithEmail(email: string, password: string) {
     email,
     password,
   });
-  if (error) console.log("Error: ", error);
-  else return data;
+  if (error) throw error;
+  return data;
 }
 
 export async function signUpWithEmail(email: string, password: string) {
@@ -16,7 +16,8 @@ export async function signUpWithEmail(email: string, password: string) {
     password,
   });
   const { user } = data;
-  if (error) console.log("Error: ", error);
+  if (error) throw error;
+  return user;
 }
 export async function signOut() {
   const { error } = await supabase.auth.signOut();
