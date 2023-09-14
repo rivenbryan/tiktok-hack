@@ -8,8 +8,7 @@ type Props = {};
 
 export default function Home({}: Props) {
   return (
-    <Container navigateString={"/order"}>
-     
+    <Container>
       <div className="flex flex-col">
         <MapComponent />
         <GroupBuyBottomComponent />

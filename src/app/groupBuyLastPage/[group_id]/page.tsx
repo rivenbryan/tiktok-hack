@@ -1,26 +1,59 @@
 "use client";
 
-import React, { useState } from "react";
-import Container from "../components/Container";
+import React, { useEffect, useState } from "react";
+import Container from "../../components/Container";
 import { IoShareOutline } from "react-icons/io5";
 import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import Link from "next/link";
-
-const data = {
-  days: 5,
-  distance: 600,
-  groupleader: "@SilentWolf",
-  groupleaderRating: 4.7,
-  groupname: "Discount Dynasty",
-  location: "Yishun Ave 6",
-  deadline: "2023-09-20T00:00:00.000Z",
-  groupcount: 6,
-};
+import { useParams } from "next/navigation";
+import { Group } from "@/app/groupBuyMainPage/join/page";
+import { supabase } from "@/lib/db";
+// const data = {
+//   days: 5,
+//   distance: 600,
+//   groupleader: "@SilentWolf",
+//   groupleaderRating: 4.7,
+//   groupname: "Discount Dynasty",
+//   location: "Yishun Ave 6",
+//   deadline: "2023-09-20T00:00:00.000Z",
+//   groupcount: 6,
+// };
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
-  return (
+  const params = useParams();
+  const [data, setData] = useState<any>();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("group")
+          .select("*")
+          .filter("id", "eq", params.group_id);
+        setData((data as Group[])[0]);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+  return isLoading ? (
+    <>
+      <div className="h-full w-full flex opacity-50 bg-white justify-center items-center">
+        <Image
+          src={"/Loading.svg"}
+          alt="Loading..."
+          width={100}
+          height={100}
+          className="bg-none"
+        />
+      </div>
+    </>
+  ) : (
     <>
       {isOpen && (
         <div className="fixed w-full h-full bg-black/30 z-10 flex justify-center items-center">
@@ -33,7 +66,7 @@ export default function Page() {
             </p>
             <div className="flex justify-center w-full items-center gap-3">
               <Link
-                href="/chat"
+                href={`/chat/${params.group_id}`}
                 className="w-24 h-10 bg-rose-600 text-white font-semibold rounded-xl flex justify-center items-center"
               >
                 Join Now
@@ -48,7 +81,7 @@ export default function Page() {
           </div>
         </div>
       )}
-      <Container navigateString="/groupBuyMainPage/join">
+      <Container>
         <div className="fixed bottom-16 flex justify-center items-center w-full">
           <button
             onClick={() => setIsOpen(true)}
@@ -80,7 +113,7 @@ export default function Page() {
                   className="h-6 w-6 rounded-full"
                 />
                 <p className="text-xs">
-                  {data.groupleader} +{data.groupcount - 1} other members
+                  {data.groupleader} +{4} other members
                 </p>
               </div>
               <div className="flex items-center text-[0.6rem] gap-1">

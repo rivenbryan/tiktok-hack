@@ -3,23 +3,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FormEvent, useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/db";
-import {
-  User,
-  Send,
-  Laugh,
-  MoreVertical,
-  Mail,
-  MessageSquare,
-  PlusCircle,
-  Languages,
-} from "lucide-react";
-
+import { User, Send, Laugh, MoreVertical, Languages } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuPortal,
-  DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
@@ -38,6 +27,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import axios from "axios";
+import { useParams } from "next/navigation";
 
 const WHOISLEADER_REPLY_MESSAGES = ["SilentWolf is the leader"];
 const SCHEDULE_REPLY_MESSAGES = [
@@ -84,13 +74,20 @@ export default function Chat() {
   const [user, setUser] = useState<null | UserType>(null);
   const lastMessageRef = useRef<any>(null);
   const username = user?.email?.split("@")[0];
+  const params = useParams();
+
+  const { group_id } = params;
+
   useEffect(() => {
     const fetchMessages = async () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
       setUser(user);
-      const { data, error } = await supabase.from("messages").select("*");
+      const { data, error } = await supabase
+        .from("messages")
+        .select("*")
+        .eq("group_id", group_id);
       if (error) {
         console.error("Error fetching messages:", error);
       } else {
@@ -140,6 +137,7 @@ export default function Chat() {
         {
           text: text,
           username: username,
+          group_id,
         },
       ]);
 

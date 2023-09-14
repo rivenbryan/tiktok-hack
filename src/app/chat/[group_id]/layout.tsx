@@ -1,4 +1,4 @@
-import TiktokMobileHeader from "../components/TiktokMobileHeader";
+import TiktokMobileHeader from "../../components/TiktokMobileHeader";
 export default function ChatLayout({
   children,
 }: {

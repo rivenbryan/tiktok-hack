@@ -35,7 +35,7 @@ const addresses = [
 
 export default function page({}: Props) {
   return (
-    <Container navigateString="/groupBuyMainPage/create">
+    <Container>
       <div className="m-4">
         <div className="flex justify-between items-center">
           <div className="flex gap-1 items-center">
