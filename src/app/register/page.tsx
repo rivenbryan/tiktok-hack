@@ -3,9 +3,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { signUpWithEmail } from "@/lib/auth";
 import { useState, FormEvent } from "react";
-import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { AuthError } from "@supabase/supabase-js";
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +25,7 @@ export default function Register() {
         router.push("/login");
       }, 2000);
     } catch (err) {
-      if (err instanceof AxiosError) {
+      if (err instanceof AuthError) {
         setError(err.message);
       }
     } finally {

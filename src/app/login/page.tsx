@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { signInWithEmail } from "@/lib/auth";
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { AxiosError } from "axios";
+import { AuthError } from "@supabase/supabase-js";
 import Image from "next/image";
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ export default function Login() {
         router.push("/");
       }, 2000);
     } catch (err) {
-      if (err instanceof AxiosError) {
+      if (err instanceof AuthError) {
         setError(err.message);
       }
     } finally {
