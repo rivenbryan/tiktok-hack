@@ -3,13 +3,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { signUpWithEmail } from "@/lib/auth";
 import { useState, FormEvent } from "react";
-import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { AuthError } from "@supabase/supabase-js";
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [success, setSucccess] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
@@ -19,13 +18,13 @@ export default function Register() {
     setIsLoading(true);
     setSucccess(false);
     try {
-      await signUpWithEmail(email, password, username);
+      await signUpWithEmail(email, password);
       setSucccess;
       setTimeout(() => {
         router.push("/login");
       }, 2000);
     } catch (err) {
-      if (err instanceof AxiosError) {
+      if (err instanceof AuthError) {
         setError(err.message);
       }
     } finally {
@@ -75,6 +74,16 @@ export default function Register() {
           </Button>
         </div>
       </form>
+      {isLoading && (
+        <div className="fixed w-screen h-full items-center flex justify-center bg-white opacity-30">
+          <Image
+            src={"/Loading.svg"}
+            alt="Loading..."
+            width={100}
+            height={100}
+          />
+        </div>
+      )}
     </div>
   );
 }
