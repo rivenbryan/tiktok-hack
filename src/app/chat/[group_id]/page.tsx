@@ -319,7 +319,7 @@ export default function Chat() {
                 />
                 <Laugh className="absolute right-4 top-[50%] -translate-y-[50%]" />
               </div>
-              <Button type="submit">
+              <Button type="submit" disabled={loading}>
                 <Send className="opacity-40 bg-gray-100" />
               </Button>
             </form>
