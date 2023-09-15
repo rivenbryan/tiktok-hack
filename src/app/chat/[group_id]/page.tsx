@@ -87,7 +87,8 @@ export default function Chat() {
       const { data, error } = await supabase
         .from("messages")
         .select("*")
-        .eq("group_id", group_id);
+        .eq("group_id", group_id)
+        .order("timestamp");
       if (error) {
         console.error("Error fetching messages:", error);
       } else {
