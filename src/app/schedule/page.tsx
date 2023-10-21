@@ -67,7 +67,7 @@ export default function Schedule() {
   const router = useRouter();
 
   const handleSubmit = () => {
-    router.push("/chat");
+    router.push("/chat/7");
   };
   return (
     <div className="w-screen min-h-[90vh] relative px-4">

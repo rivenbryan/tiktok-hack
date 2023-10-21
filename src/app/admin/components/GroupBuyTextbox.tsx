@@ -20,22 +20,22 @@ export default function GroupBuyTextbox({
     const newValue = e.target.value;
     setLocalValue(e.target.value);
     setGroupBuyPrice((prevValue: GroupBuy[]) => {
+      console.log("indexValue" + indexValue);
       const updatedArray = [...prevValue];
 
       const { qty, discount } = updatedArray[indexValue];
 
       if (isQty) {
-        console.log("true");
+     
         updatedArray[indexValue] = {
           qty: Number(newValue),
           discount: discount,
         };
-        console.log("after true");
-        console.log(updatedArray);
+
       } else {
         updatedArray[indexValue] = { qty: qty, discount: Number(newValue) };
       }
-
+      
       return updatedArray;
     });
   };

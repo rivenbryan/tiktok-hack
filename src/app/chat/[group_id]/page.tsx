@@ -3,23 +3,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FormEvent, useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/db";
-import {
-  User,
-  Send,
-  Laugh,
-  MoreVertical,
-  Mail,
-  MessageSquare,
-  PlusCircle,
-  Languages,
-} from "lucide-react";
-
+import { User, Send, Laugh, MoreVertical, Languages } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuPortal,
-  DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
@@ -38,6 +27,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import axios from "axios";
+import { useParams } from "next/navigation";
 
 const WHOISLEADER_REPLY_MESSAGES = ["SilentWolf is the leader"];
 const SCHEDULE_REPLY_MESSAGES = [
@@ -84,13 +74,21 @@ export default function Chat() {
   const [user, setUser] = useState<null | UserType>(null);
   const lastMessageRef = useRef<any>(null);
   const username = user?.email?.split("@")[0];
+  const params = useParams();
+
+  const { group_id } = params;
+
   useEffect(() => {
     const fetchMessages = async () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
       setUser(user);
-      const { data, error } = await supabase.from("messages").select("*");
+      const { data, error } = await supabase
+        .from("messages")
+        .select("*")
+        .eq("group_id", group_id)
+        .order("timestamp");
       if (error) {
         console.error("Error fetching messages:", error);
       } else {
@@ -140,6 +138,7 @@ export default function Chat() {
         {
           text: text,
           username: username,
+          group_id,
         },
       ]);
 
@@ -229,132 +228,138 @@ export default function Chat() {
   };
 
   return (
-    <div className="w-full h-full items-center flex justify-between flex-col">
-      <div className="w-full px-2 overflow-y-scroll h-[90%]">
-        {messages.map((message: any, index) => (
-          <div
-            key={index}
-            className={cn(
-              "flex w-full gap-4 py-4",
-              message.username === username
-                ? "justify-start flex-row-reverse pl-10"
-                : "justify-start pr-10"
-            )}
-          >
-            <Avatar className="rounded-full border">
-              <AvatarImage />
-              <AvatarFallback>
-                <User />
-              </AvatarFallback>
-            </Avatar>
+    <>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=0"
+      ></meta>
+      <div className="w-full h-full items-center flex justify-between flex-col">
+        <div className="w-full px-2 overflow-y-scroll h-[90%]">
+          {messages.map((message: any, index) => (
             <div
+              key={index}
               className={cn(
-                "p-4 border border-opacity-50 border-rounded flex flex-col rounded-xl",
-                message.username === username ? "bg-gray-100" : ""
+                "flex w-full gap-4 py-4",
+                message.username === username
+                  ? "justify-start flex-row-reverse pl-10"
+                  : "justify-start pr-10"
               )}
             >
-              <div className="text-red-500 font-bold">{message.username}</div>
-              <div>{message.text}</div>
-            </div>
-            {!message?.component && (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <div className="flex items-center justify-center opacity-60">
-                    <MoreVertical />
-                  </div>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-20 bg-white">
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>
-                      <Languages className="mr-2 h-4 w-4" />
-                      <span>Translate</span>
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
-                      <DropdownMenuSubContent className="bg-white">
-                        <DropdownMenuItem
-                          onClick={() => handleTranslate(message, "chinese")}
-                        >
-                          <span className="w-full text-center">Chinese</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => handleTranslate(message, "english")}
-                        >
-                          <span className="w-full text-center">English</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => handleTranslate(message, "malay")}
-                        >
-                          <span className="w-full text-center">Malay</span>
-                        </DropdownMenuItem>
-                      </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
-                  </DropdownMenuSub>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
-          </div>
-        ))}
-        <div ref={lastMessageRef}></div>
-      </div>
-      <div className="w-full">
-        <Command>
-          <form
-            onSubmit={handleSubmit}
-            className="w-full flex items-center bottom-0 justify-center pl-4 py-2 border-t border-gray-200"
-          >
-            <div className="relative w-[85%]">
-              <CommandInput
-                disabled={user === null}
-                placeholder={`${
-                  user === null
-                    ? "Please login first to send a message"
-                    : "Send a message..."
-                }`}
-                className="bg-gray-100 border-none pl-4 pr-14 rounded-xl"
-                onValueChange={setText}
-                value={text}
-              />
-              <Laugh className="absolute right-4 top-[50%] -translate-y-[50%]" />
-            </div>
-            <Button type="submit">
-              <Send className="opacity-40 bg-gray-100" />
-            </Button>
-          </form>
-          {text.startsWith("/") &&
-            !commands.map((command) => command.value).includes(text) && (
-              <div className={cn("absolute bottom-16 bg-white", "w-full")}>
-                <CommandList>
-                  <CommandEmpty>No results found.</CommandEmpty>
-                  <CommandGroup heading="Suggestions">
-                    <hr className="w-[97%] mx-auto" />
-                    {commands.map((command) => (
-                      <CommandItem key={command.value}>
-                        <div
-                          onClick={() => {
-                            setText(command.value);
-                          }}
-                        >
-                          {command.label}
-                        </div>
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
+              <Avatar className="rounded-full border">
+                <AvatarImage />
+                <AvatarFallback>
+                  <User />
+                </AvatarFallback>
+              </Avatar>
+              <div
+                className={cn(
+                  "p-4 border border-opacity-50 border-rounded flex flex-col rounded-xl",
+                  message.username === username ? "bg-gray-100" : ""
+                )}
+              >
+                <div className="text-red-500 font-bold">{message.username}</div>
+                <div>{message.text}</div>
               </div>
-            )}
-        </Command>
-      </div>
-      {loading && (
-        <div className="fixed w-screen h-full items-center flex justify-center bg-white opacity-30">
-          <Image
-            src={"/Loading.svg"}
-            alt="Loading..."
-            width={100}
-            height={100}
-          />
+              {!message?.component && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <div className="flex items-center justify-center opacity-60">
+                      <MoreVertical />
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-20 bg-white">
+                    <DropdownMenuSub>
+                      <DropdownMenuSubTrigger>
+                        <Languages className="mr-2 h-4 w-4" />
+                        <span>Translate</span>
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuPortal>
+                        <DropdownMenuSubContent className="bg-white">
+                          <DropdownMenuItem
+                            onClick={() => handleTranslate(message, "chinese")}
+                          >
+                            <span className="w-full text-center">Chinese</span>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => handleTranslate(message, "english")}
+                          >
+                            <span className="w-full text-center">English</span>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => handleTranslate(message, "malay")}
+                          >
+                            <span className="w-full text-center">Malay</span>
+                          </DropdownMenuItem>
+                        </DropdownMenuSubContent>
+                      </DropdownMenuPortal>
+                    </DropdownMenuSub>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </div>
+          ))}
+          <div ref={lastMessageRef}></div>
         </div>
-      )}
-    </div>
+        <div className="w-full">
+          <Command>
+            <form
+              onSubmit={handleSubmit}
+              className="w-full flex items-center bottom-0 justify-center pl-4 py-2 border-t border-gray-200"
+            >
+              <div className="relative w-[85%]">
+                <CommandInput
+                  disabled={user === null}
+                  placeholder={`${
+                    user === null
+                      ? "Please login first to send a message"
+                      : "Send a message..."
+                  }`}
+                  className="bg-gray-100 border-none pl-4 pr-14 rounded-xl"
+                  onValueChange={setText}
+                  value={text}
+                />
+                <Laugh className="absolute right-4 top-[50%] -translate-y-[50%]" />
+              </div>
+              <Button type="submit" disabled={loading}>
+                <Send className="opacity-40 bg-gray-100" />
+              </Button>
+            </form>
+            {text.startsWith("/") &&
+              !commands.map((command) => command.value).includes(text) && (
+                <div className={cn("absolute bottom-16 bg-white", "w-full")}>
+                  <CommandList>
+                    <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandGroup heading="Suggestions">
+                      <hr className="w-[97%] mx-auto" />
+                      {commands.map((command) => (
+                        <CommandItem key={command.value}>
+                          <div
+                            onClick={() => {
+                              setText(command.value);
+                            }}
+                          >
+                            {command.label}
+                          </div>
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </div>
+              )}
+          </Command>
+        </div>
+        {loading && (
+          <div className="fixed w-screen h-full items-center flex justify-center bg-white opacity-30">
+            <Image
+              src={"/Loading.svg"}
+              alt="Loading..."
+              width={100}
+              height={100}
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

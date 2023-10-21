@@ -7,6 +7,7 @@ import Textbox from "./Textbox";
 import Divider from "@/app/components/Divider";
 import TableGroupBuy from "./TableGroupBuy";
 import AdminButton from "./AdminButton";
+import { max } from "date-fns";
 
 type Props = {};
 
@@ -24,52 +25,66 @@ export default function GroupbuyModal({}: Props) {
   const [discount, setDiscount] = useState<number>(0);
   const [fixedDiscount, setFixedDiscount] = useState<number>(0);
   const [pricePerUnit, setPricePerUnit] = useState<number>(null);
+  const [maximumDiscountApplicable, setMaximumDiscountApplicable] = useState<number>(100);
 
-  console.log(unitPerItem);
-  console.log(totalQuantity);
-  console.log(groupBuyPrice);
-
+  console.log(maximumDiscountApplicable)
   const handleChangeFixedDiscount = (e: any) => {
     setFixedDiscount(Number(e.target.value));
   };
 
+  const handleChangeMaximumDiscountAPplicable = (e: any) => {
+    setMaximumDiscountApplicable(Number(e.target.value));
+  };
+
   const calculateTierDiscount = () => {
+    console.log("Clicked Calculate")
+    console.log(groupBuyPrice)
+    console.log("Total Quantity is " + totalQuantity);
     if (!totalQuantity || !unitPerItem) {
       console.log("Total quantity is not defined");
       return;
     }
-    console.log("calculate");
+   
     let localDiscount = 0;
     // Sort the array by qty descending
-    const sortedArray = groupBuyPrice.sort((a, b) => b.qty - a.qty);
-    console.log(sortedArray);
+    const sortedArray = groupBuyPrice.slice().sort((a, b) => b.qty - a.qty);
+
 
     for (let i = 0; i < sortedArray.length; i++) {
+      console.log("no.  is " + sortedArray[i].qty);
       if (totalQuantity >= sortedArray[i].qty) {
+
         localDiscount = sortedArray[i].discount;
         setDiscount(localDiscount);
         break;
       }
     }
-    console.log("discount is " + localDiscount);
+   
     const finalPrice = unitPerItem * totalQuantity * (1 - localDiscount / 100);
-    console.log("finalPrice " + finalPrice);
+
     setFinalPrice(finalPrice);
 
     const PricePerUnit = finalPrice / totalQuantity;
     setPricePerUnit(PricePerUnit);
   };
   const calculateFixedDiscount = () => {
-    console.log("unitPerItem " + unitPerItem);
-    console.log("totalQuantity " + totalQuantity);
-    console.log(fixedDiscount);
+    console.log("Discount % Per Quantity " + fixedDiscount);
+    console.log("Unit Price per item " + unitPerItem);
+    console.log("Total Quantity " + totalQuantity);
+    console.log("maximumDiscountApplicable " + maximumDiscountApplicable)
     if (unitPerItem && totalQuantity && fixedDiscount) {
-      const discount = fixedDiscount * totalQuantity;
-      setDiscount(discount);
-      console.log("discount " + discount);
-      console.log("total price " + unitPerItem * totalQuantity);
+      var discount = fixedDiscount * totalQuantity;
+      console.log("discount% : " + discount);
+      if (discount > maximumDiscountApplicable) {
+        setDiscount(maximumDiscountApplicable);
+
+        discount = maximumDiscountApplicable;
+      }else{
+        setDiscount(discount);
+      }
+     
       const finalPrice = unitPerItem * totalQuantity * ((100 - discount) / 100);
-      console.log("finalPrice " + finalPrice);
+      
       setFinalPrice(finalPrice);
 
       const PricePerUnit = finalPrice / totalQuantity;
@@ -109,7 +124,7 @@ export default function GroupbuyModal({}: Props) {
             groupBuyPrice={groupBuyPrice}
           />
         ) : (
-          <FixedDiscountComponent handleChange={handleChangeFixedDiscount} />
+          <FixedDiscountComponent handleChange1={handleChangeFixedDiscount} handleChange2={handleChangeMaximumDiscountAPplicable} />
         )}
       </div>
       <div className="bg-gray-100 border-none rounded-lg w-full p-4 mt-4">
@@ -135,9 +150,6 @@ export default function GroupbuyModal({}: Props) {
                 </p>
               )}
 
-              {/* <h1 className=" font-bold text-xm">
-                {pricePerUnit == null ? "-" : "$" + pricePerUnit.toFixed(2)}
-              </h1> */}
             </div>
             <div className="flex justify-between items-center">
               <h1 className="text-x font-bold">

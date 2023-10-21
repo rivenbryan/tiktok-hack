@@ -6,25 +6,18 @@ export async function signInWithEmail(email: string, password: string) {
     email,
     password,
   });
-  if (error) console.log("Error: ", error);
-  else return data;
+  if (error) throw error;
+  return data;
 }
 
-export async function signUpWithEmail(email: string, password: string, username: string) {
-
+export async function signUpWithEmail(email: string, password: string) {
   const { data, error }: any = await supabase.auth.signUp({
     email,
     password,
   });
-  console.log(data)
   const { user } = data;
-  console.log(user?.id)
-  console.log(error)
-  // const { data1, error1 }: any = await supabase
-  //   .from("user")
-  //   .insert([{ id: user.id, username: username }])
-  //   .select();
-  if (error) console.log("Error: ", error);
+  if (error) throw error;
+  return user;
 }
 export async function signOut() {
   const { error } = await supabase.auth.signOut();

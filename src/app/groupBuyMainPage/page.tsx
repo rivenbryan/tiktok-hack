@@ -8,8 +8,11 @@ type Props = {};
 
 export default function Home({}: Props) {
   return (
-    <Container navigateString={"/order"}>
-     
+    <Container>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      ></meta>
       <div className="flex flex-col">
         <MapComponent />
         <GroupBuyBottomComponent />

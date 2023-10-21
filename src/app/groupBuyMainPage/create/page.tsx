@@ -16,8 +16,7 @@ export default function Home({}: Props) {
   const { address, groupName, setGroupName, quantity } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>("");
-
-  console.log(groupName);
+  const [groupId, setGroupId] = useState(0);
   const handleGroupNameChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -44,6 +43,7 @@ export default function Home({}: Props) {
         },
       ])
       .select();
+    setGroupId((data as any)[0].id);
   };
 
   return (
@@ -56,7 +56,7 @@ export default function Home({}: Props) {
               Your $20.00 will be held until the deadline is met
             </div>
             <Link
-              href="/chat"
+              href={`/chat/${groupId}`}
               className="py-2 px-4 bg-rose-600 font-bold text-white rounded-lg"
             >
               Ok
@@ -64,7 +64,11 @@ export default function Home({}: Props) {
           </div>
         </div>
       )}
-      <Container navigateString="/groupBuyMainPage">
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      ></meta>
+      <Container>
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col gap-5 ml-4 m-5">
             <h1 className="font-bold">Start A New Group!</h1>

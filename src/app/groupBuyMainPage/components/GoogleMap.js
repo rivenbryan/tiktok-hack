@@ -8,33 +8,29 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 1.42972,
-  lng: 103.83591,
+  lat: 1.27707,
+  lng: 103.845828,
 };
 
 const marker1 = {
-  lat: 1.427862,
-  lng: 103.836159
-
+  lat: 1.277070 + 0.002117117,  // approx 235m to the north
+  lng: 103.845828
 }
 
 const marker2 = {
-  lat: 1.427893,
-  lng: 103.834508
+  lat: 1.277070,
+  lng: 103.845828 + 0.002117117  // approx 235m to the east
 }
 
-
 const marker3 = {
-  lat: 1.428644,
-  lng: 103.837965
+  lat: 1.277070 - 0.002810811,  // approx 312m to the south
+  lng: 103.845828
 }
 
 const marker4 = {
-  
+  lat: 1.277070,
+  lng: 103.845828 - 0.002810811  // approx 312m to the west
 }
-
-
-
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -64,13 +60,13 @@ function MyComponent() {
     // Comment out or remove these lines if you don't want to fit bounds
     // const bounds = new window.google.maps.LatLngBounds(center);
     // map.fitBounds(bounds);
-  
+
     // This line will set the zoom level explicitly, which should override fitBounds
-    map.setZoom(16);  // Set your desired zoom level here
-  
+    map.setZoom(16); // Set your desired zoom level here
+
     setMap(map);
   }, []);
-  
+
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null);
   }, []);
@@ -81,12 +77,14 @@ function MyComponent() {
       center={center}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      options={{ streetViewControl: false, // turns off the pegman (person) control for street view
-      mapTypeControl: false, // turns off the map/satellite toggle
-      zoomControl: false, // turns off the +/- zoom buttons
-      fullscreenControl: false, // turns off the full screen button
-      disableDefaultUI: true,
-      styles: mapStyles }}
+      options={{
+        streetViewControl: false, // turns off the pegman (person) control for street view
+        mapTypeControl: false, // turns off the map/satellite toggle
+        zoomControl: false, // turns off the +/- zoom buttons
+        fullscreenControl: false, // turns off the full screen button
+        disableDefaultUI: true,
+        styles: mapStyles,
+      }}
     >
       <Marker position={marker1} />
       <Marker position={marker2} />

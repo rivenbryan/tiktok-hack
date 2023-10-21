@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <Container navigateString="/groupBuyLastPage">
+    <Container>
       <div className="flex flex-col h-full w-full items-center gap-4 ">
         <div className="flex w-full border-b border-gray-200 justify-between p-4">
           <div className="flex justify-start items-center gap-3">
